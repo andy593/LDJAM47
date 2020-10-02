@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/aargh.wav-8bbd187a128076367aafcf174e020dea.sample"
+
+[deps]
+
+source_file="res://Sounds/aargh.wav"
+dest_files=[ "res://.import/aargh.wav-8bbd187a128076367aafcf174e020dea.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
