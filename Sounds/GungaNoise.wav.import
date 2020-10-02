@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/GungaNoise.wav-e9f1b8d8f5c73996ad08d6bfe8674908.sample"
+
+[deps]
+
+source_file="res://Sounds/GungaNoise.wav"
+dest_files=[ "res://.import/GungaNoise.wav-e9f1b8d8f5c73996ad08d6bfe8674908.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
