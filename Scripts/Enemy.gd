@@ -12,7 +12,7 @@ func _ready():
 func _on_EnemyArea_area_entered(area): #finds out if the cursor has touched the enemy
 	EnemySpriteActual.hide()
 	AngerTimer.paused = true
-	tween.interpolate_property($SpriteRef,("position"),Vector2(0, 0),Vector2(-(position.x -320),-position.y),1,Tween.TRANS_LINEAR) #no idea how to fix
+	tween.interpolate_property($SpriteRef,("global_position"),Vector2($EnemyArea/EnemySprite.global_position.x, $EnemyArea/EnemySprite.global_position.y),Vector2(440,20),1,Tween.TRANS_LINEAR) #no idea how to fix
 	tween.start() #tween
 
 func _on_GoToDoor_tween_completed(object, key): #tween stuff
@@ -24,6 +24,3 @@ func _on_AngerTimer_timeout(): #if the customer gets angry they explode
 	main.add_child(particle)
 	particle.global_position = position
 	queue_free()
-
-
-
