@@ -26,8 +26,8 @@ func _on_Timer_timeout(): #calls spawn_enemy on timeout,stops more than 5 spawni
 		SpawnTimer.wait_time = 0
 	
 func spawn_enemy(): #spawn enemy and tween
-	spawn.position = get_spawn_position()
-	tween.interpolate_property($EnemyRef,"position",Vector2(0, 0),Vector2(spawn.position.x -320,spawn.position.y),1,Tween.TRANS_LINEAR)
+	spawn.global_position = get_spawn_position()
+	tween.interpolate_property($EnemyRef,"global_position",Vector2($SpawnPoints.global_position.x, $SpawnPoints.global_position.y),Vector2(spawn.global_position.x,spawn.global_position.y),1,Tween.TRANS_LINEAR)
 	tween.start() #tween
 
 func _on_EnemyMoveToDesk_tween_completed(object, _key):
@@ -35,4 +35,4 @@ func _on_EnemyMoveToDesk_tween_completed(object, _key):
 	var enemy = Enemy.instance()
 	var main = get_tree().current_scene
 	main.add_child(enemy)
-	enemy.global_position = spawn.position
+	enemy.global_position = spawn.global_position
