@@ -54,7 +54,7 @@ func _process(delta):
 		$ClockText.text = "11:59:59.9999999999999999999" + str(decTime)
 	if time >= 241:
 		$ClockText.text = "11:59:59.99999999999999999999" + str(decTime)
-	if time >= 220:
+	if time >= 250:
 		$ClockText.text = "11:59:59.999999999999999999999" + str(decTime)
 	if time >= 259:
 		$ClockText.text = "11:59:59.9999999999999999999999" + str(decTime)
