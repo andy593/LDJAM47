@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprites/TitleScreen.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/StartButton.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Cursor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/TitleScreen.gd" type="Script" id=5]
+
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64.3393, 33.4792 )
+
+[node name="TitleScreen" type="Sprite"]
+position = Vector2( 320, 240 )
+texture = ExtResource( 1 )
+script = ExtResource( 5 )
+
+[node name="Cursor" parent="." instance=ExtResource( 4 )]
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 137.806
+margin_top = 30.6759
+margin_right = 265.806
+margin_bottom = 94.6759
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 2 )
+texture_disabled = ExtResource( 2 )
+texture_focused = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonArea" type="Area2D" parent="TextureButton"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureButton/ButtonArea"]
+position = Vector2( 63.9803, 31.9901 )
+shape = SubResource( 1 )
+
+[node name="FadeOut" type="ColorRect" parent="."]
+visible = false
+margin_left = -340.454
+margin_top = -245.636
+margin_right = 342.546
+margin_bottom = 257.364
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="area_entered" from="Cursor" to="." method="_on_Cursor_area_entered"]
+[connection signal="area_exited" from="Cursor" to="." method="_on_Cursor_area_exited"]
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
