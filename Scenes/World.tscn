@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/BarCounter.png" type="Texture" id=2]
@@ -7,9 +7,12 @@
 [ext_resource path="res://Scenes/Clock.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sounds/mainmusicpart2.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Scenes/World.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/EnemyStuff.tscn" type="PackedScene" id=8]
 
 [node name="World" type="Node"]
 script = ExtResource( 7 )
+
+[node name="EnemyStuff" parent="." instance=ExtResource( 8 )]
 
 [node name="BarCounter" type="Sprite" parent="."]
 position = Vector2( 320.707, 270 )

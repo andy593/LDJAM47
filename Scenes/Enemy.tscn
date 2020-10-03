@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/Geoff.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Enemy.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 9, 20 )
+
+[node name="Enemy" type="Node2D"]
+position = Vector2( 321.128, 535.24 )
+script = ExtResource( 2 )
+
+[node name="SpriteRef" type="Sprite" parent="."]
+position = Vector2( -8.22586, -600.361 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+hframes = 4
+
+[node name="GoToDoor" type="Tween" parent="."]
+
+[node name="EnemyArea" type="Area2D" parent="."]
+scale = Vector2( 2, 2 )
+
+[node name="EnemySprite" type="Sprite" parent="EnemyArea"]
+texture = ExtResource( 1 )
+hframes = 4
+
+[node name="EnemyAreaShape" type="CollisionShape2D" parent="EnemyArea"]
+position = Vector2( 0, 14 )
+shape = SubResource( 1 )
+
+[node name="AngerTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+[connection signal="tween_completed" from="GoToDoor" to="." method="_on_GoToDoor_tween_completed"]
+[connection signal="area_entered" from="EnemyArea" to="." method="_on_EnemyArea_area_entered"]
+[connection signal="timeout" from="AngerTimer" to="." method="_on_AngerTimer_timeout"]

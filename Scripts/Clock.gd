@@ -1,6 +1,6 @@
 extends Node2D
 
-var time = 55
+var time = 0
 var decTime = 0
 var hasScaryTimeHappened = 0
 const SCARYLIGHTNING = preload("res://Scenes/Flash.tscn")
