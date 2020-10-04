@@ -1,23 +1,14 @@
 extends Node2D
 var isMouseClickable = 0
-onready var CursorTimer = $Cursor/CursorTimer
-var drink = 0
+onready var CurrentlyInHand = get_node("/root/Loader")
 var blood = 0
 var gotCup = false
 signal drinkSend
-
-func _ready():
-	CursorTimer.set_paused(true)
 	
 func _process(_delta):
 	updateCursor()
 	updatePlayerPosition()
 	emit_signal("drinkSend")
-	if Input.is_action_pressed("ui_accept"):
-		$Cursor.set_collision_mask_bit(int(drink),true)
-		$Cursor.set_collision_layer_bit(int(drink),true)
-		CursorTimer.set_paused(false)
-		CursorTimer.wait_time = 1
 
 
 func _on_Cursor_area_entered(_area):
@@ -28,14 +19,11 @@ func _on_Cursor_area_exited(_area):
 
 func updateCursor(): #changes cursor animation
 	if Input.is_mouse_button_pressed(1):
-		$Cursor.set_collision_mask_bit(int(drink),true)
-		$Cursor.set_collision_layer_bit(int(drink),true)
 		$Cursor/CursorSprite.frame = 0
 	elif isMouseClickable == 1:
 		$Cursor/CursorSprite.frame = 2
 	else:
 		$Cursor/CursorSprite.frame = 1
-
 
 func updatePlayerPosition(): #moves player
 	var mouse_pos = get_global_mouse_position() #ez
@@ -53,42 +41,29 @@ func updatePlayerPosition(): #moves player
 		$Player/LeftArm.show_behind_parent = false
 		$Player/RightArm.show_behind_parent = true
 	
-	$Player/RightArm.frame = drink
+	$Player/RightArm.frame = CurrentlyInHand.get_drink()
 
 func _on_Snootbeer_Snootbeer():
-	if gotCup == true:
-		drink = 1
-	else:
-		pass
+	Drink_update_update_lolidk(1)
 
 func _on_Crudlite_Crudlite():
-	if gotCup == true:
-		drink = 2
-	else:
-		pass
+	Drink_update_update_lolidk(2)
 
 func _on_Bloodweiser_Bloodweiser():
-	if gotCup == true:
-		drink = 3
-	else:
-		pass
+	Drink_update_update_lolidk(3)
 
 func _on_DrBob_DrBob():
-	if gotCup == true:
-		drink = 4
-	else:
-		pass
+	Drink_update_update_lolidk(4)
 
 func _on_Cups_GotCup():
 	gotCup = true
 	print("Got cup!")
 	randomize()
 	var glass = rand_range(1,3)
-	drink = 6 + glass
+	CurrentlyInHand.update_drink(6 + glass)
 
-
-
-func _on_CursorTimer_timeout():
-		CursorTimer.set_paused(true)
-		$Cursor.set_collision_mask_bit(int(drink),false)
-		$Cursor.set_collision_layer_bit(int(drink),false)
+func Drink_update_update_lolidk(drinknum):
+	if gotCup == true:
+		CurrentlyInHand.update_drink(drinknum)
+	else:
+		pass

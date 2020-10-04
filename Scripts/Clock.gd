@@ -92,6 +92,7 @@ func scaryTime():
 		$ClockText.modulate.r = 500
 		$Sprite.frame = 1
 		self.add_child(lightningInstance)
+		difficulty.set_ScaryTime("yep")
 		hasScaryTimeHappened = 1
 
 

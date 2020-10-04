@@ -10,7 +10,6 @@ maxRange = 40
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 1153.07, 0 )
-scale = Vector2( -1, 1 )
 offset = Vector2( 0, 0.111828 )
 frame = 3
 
