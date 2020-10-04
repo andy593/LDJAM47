@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sprites/GungaLogo.png" type="Texture" id=1]
 [ext_resource path="res://Sounds/GungaNoise.wav" type="AudioStream" id=2]
 [ext_resource path="res://Scripts/Splash.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/Splash.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "GUNGA"
@@ -25,22 +26,15 @@ tracks/0/keys = {
 [node name="Splash" type="Node2D"]
 script = ExtResource( 3 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -0.0728149
-margin_top = -0.594604
-margin_right = 639.927
-margin_bottom = 482.405
-color = Color( 0.34902, 0.647059, 0.145098, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Splash" type="Sprite" parent="."]
+position = Vector2( 320, 240 )
+texture = ExtResource( 4 )
 
 [node name="GungaLogo" type="Sprite" parent="."]
-position = Vector2( 315.709, 241.632 )
-scale = Vector2( 0.658151, 0.658151 )
+position = Vector2( 434.874, 107.322 )
+scale = Vector2( 0.473663, 0.473663 )
 texture = ExtResource( 1 )
 hframes = 5
-frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "GUNGA"
@@ -51,20 +45,18 @@ stream = ExtResource( 2 )
 autoplay = true
 
 [node name="Timer" type="Timer" parent="AudioStreamPlayer2D"]
-wait_time = 0.4
+wait_time = 1.2
 one_shot = true
 autostart = true
 
+[node name="Tween" type="Tween" parent="."]
+
 [node name="FadeOut" type="ColorRect" parent="."]
-margin_left = -1.40765
-margin_top = -0.594604
-margin_right = 640.592
-margin_bottom = 484.405
+margin_right = 640.0
+margin_bottom = 480.0
 color = Color( 0, 0, 0, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Tween" type="Tween" parent="."]
 [connection signal="timeout" from="AudioStreamPlayer2D/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

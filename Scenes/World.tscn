@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/BarCounter.png" type="Texture" id=2]
@@ -6,24 +6,104 @@
 [ext_resource path="res://Sounds/mainmusic.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Scenes/Clock.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sounds/mainmusicpart2.ogg" type="AudioStream" id=6]
-[ext_resource path="res://Scenes/World.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/EnemyStuff.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/World.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Sillhouette.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Crab.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sprites/Background.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Sillhouette3.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Sillhouette2.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Sillhouette4.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Sprites/YardNormal.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/WindowNormal.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/YardNormalForeground.png" type="Texture" id=16]
+[ext_resource path="res://Scenes/SeatSpawner.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Cups.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scripts/Crudlite.gd" type="Script" id=19]
+[ext_resource path="res://Scripts/Snootbeer.gd" type="Script" id=20]
+[ext_resource path="res://Scripts/DrBob.gd" type="Script" id=21]
+[ext_resource path="res://Scripts/Bloodweiser.gd" type="Script" id=22]
+[ext_resource path="res://Sprites/Mugs.png" type="Texture" id=23]
+[ext_resource path="res://Scenes/StrikeList.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Sprites/Bowls.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/WineGlasses.png" type="Texture" id=27]
+[ext_resource path="res://Scripts/Rglass.gd" type="Script" id=28]
+[ext_resource path="res://Scripts/Soup.gd" type="Script" id=29]
+[ext_resource path="res://Scripts/Wglass.gd" type="Script" id=30]
+[ext_resource path="res://Sprites/DrinkSheet.png" type="Texture" id=31]
+[ext_resource path="res://Scripts/BottomSelection.gd" type="Script" id=32]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64, 12 )
 
 [node name="World" type="Node"]
 script = ExtResource( 7 )
 
-[node name="EnemyStuff" parent="." instance=ExtResource( 8 )]
+[node name="WindowNormal" type="Sprite" parent="."]
+position = Vector2( 257, 130 )
+scale = Vector2( 1.35789, 1.37952 )
+texture = ExtResource( 15 )
+hframes = 2
+
+[node name="YardNormal" type="Sprite" parent="."]
+position = Vector2( 519.991, 150.982 )
+scale = Vector2( 1.35436, 1.35436 )
+texture = ExtResource( 14 )
+hframes = 2
+
+[node name="Sillhouette" parent="." instance=ExtResource( 8 )]
+position = Vector2( -15, 178 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="Sillhouette2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 697, 195 )
+rotation = -3.14159
+scale = Vector2( 0.5, -0.5 )
+
+[node name="Sillhouette3" parent="." instance=ExtResource( 11 )]
+position = Vector2( -97.7395, 127.181 )
+
+[node name="Sillhouette4" parent="." instance=ExtResource( 13 )]
+position = Vector2( -173, 150 )
+
+[node name="YardNormalForeground" type="Sprite" parent="."]
+position = Vector2( 519.991, 150.982 )
+scale = Vector2( 1.354, 1.354 )
+texture = ExtResource( 16 )
+hframes = 2
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 320, 287 )
+scale = Vector2( 1.33371, 1.33371 )
+texture = ExtResource( 10 )
 
 [node name="BarCounter" type="Sprite" parent="."]
 position = Vector2( 320.707, 270 )
 scale = Vector2( 1.34, 1 )
 texture = ExtResource( 2 )
 
-[node name="BarTap" parent="." instance=ExtResource( 3 )]
-position = Vector2( 103.139, 355.028 )
+[node name="DrBob" parent="." instance=ExtResource( 3 )]
+position = Vector2( 195, 355 )
+script = ExtResource( 21 )
+
+[node name="Bloodweiser" parent="." instance=ExtResource( 3 )]
+position = Vector2( 150, 355.028 )
+script = ExtResource( 22 )
+
+[node name="Crudlite" parent="." instance=ExtResource( 3 )]
+position = Vector2( 100, 355.028 )
+script = ExtResource( 19 )
+
+[node name="Snootbeer" parent="." instance=ExtResource( 3 )]
+position = Vector2( 50, 355.028 )
+script = ExtResource( 20 )
 
 [node name="Clock" parent="." instance=ExtResource( 5 )]
-position = Vector2( 44.5593, 36.4147 )
+position = Vector2( 34, 10 )
+
+[node name="StrikeList" parent="Clock" instance=ExtResource( 25 )]
+position = Vector2( 583, -6 )
+scale = Vector2( -1, 1 )
+z_index = 1
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
@@ -32,6 +112,89 @@ autoplay = true
 [node name="BGM2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
 
+[node name="Crab" parent="." instance=ExtResource( 9 )]
+position = Vector2( 716.866, 376.69 )
+
+[node name="Rglass" parent="." instance=ExtResource( 18 )]
+position = Vector2( 595, 360 )
+scale = Vector2( 2.5, 2.5 )
+script = ExtResource( 28 )
+
+[node name="Sprite" type="Sprite" parent="Rglass"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 23 )
+
+[node name="Wglass" parent="." instance=ExtResource( 18 )]
+position = Vector2( 500, 360 )
+scale = Vector2( 2.5, 2.5 )
+script = ExtResource( 30 )
+
+[node name="Sprite" type="Sprite" parent="Wglass"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 27 )
+
+[node name="Soupbowls" parent="." instance=ExtResource( 18 )]
+position = Vector2( 526, 430 )
+scale = Vector2( 2.5, 2.5 )
+script = ExtResource( 29 )
+
+[node name="Sprite" type="Sprite" parent="Soupbowls"]
+position = Vector2( 8, 10.4 )
+scale = Vector2( 1.5, 1 )
+texture = ExtResource( 26 )
+
+[node name="Sprite2" type="Sprite" parent="Soupbowls"]
+position = Vector2( -6.80002, 10.4 )
+scale = Vector2( 1.5, 1 )
+texture = ExtResource( 26 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, -10 )
+position = Vector2( 54, -5 )
+
+[node name="Black" type="ColorRect" parent="."]
+visible = false
+margin_left = -60.0
+margin_top = -65.0
+margin_right = 703.0
+margin_bottom = 522.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SeatSpawner" parent="." instance=ExtResource( 17 )]
+position = Vector2( 478, 353 )
+
+[node name="Enemy" parent="SeatSpawner" index="0"]
+position = Vector2( 36.9999, -23 )
+
+[node name="Door" parent="SeatSpawner" index="3"]
+position = Vector2( 42, -170 )
+
+[node name="Seat" parent="SeatSpawner" index="4"]
+position = Vector2( 37, -23 )
+
+[node name="Bottomselect" type="Area2D" parent="."]
+script = ExtResource( 32 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottomselect"]
+position = Vector2( 140, 459 )
+shape = SubResource( 1 )
+
+[node name="DrinkSheet" type="Sprite" parent="."]
+position = Vector2( 140, 460 )
+texture = ExtResource( 31 )
+[connection signal="DrBob" from="DrBob" to="Player" method="_on_DrBob_DrBob"]
+[connection signal="Bloodweiser" from="Bloodweiser" to="Player" method="_on_Bloodweiser_Bloodweiser"]
+[connection signal="Crudlite" from="Crudlite" to="Player" method="_on_Crudlite_Crudlite"]
+[connection signal="Snootbeer" from="Snootbeer" to="Player" method="_on_Snootbeer_Snootbeer"]
+[connection signal="scaryTime" from="Clock" to="." method="_on_Clock_scaryTime"]
 [connection signal="finished" from="BGM" to="." method="_on_BGM_finished"]
+[connection signal="GotRglass" from="Rglass" to="Player" method="_on_Rglass_GotRglass"]
+[connection signal="GotWglass" from="Wglass" to="Player" method="_on_Wglass_GotWglass"]
+[connection signal="GotSoupCont" from="Soupbowls" to="Player" method="_on_Soupbowls_GotSoupCont"]
+[connection signal="BottomItemGrabbed" from="Bottomselect" to="Player" method="_on_Bottomselect_BottomItemGrabbed"]
+
+[editable path="Clock"]
+
+[editable path="SeatSpawner"]
