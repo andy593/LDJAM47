@@ -12,6 +12,9 @@ script = ExtResource( 2 )
 collision_layer = 0
 collision_mask = 0
 
+[node name="CursorTimer" type="Timer" parent="Cursor"]
+wait_time = 0.5
+
 [node name="Player" type="Sprite" parent="."]
 position = Vector2( 320, 300 )
 scale = Vector2( 3, 3 )
@@ -34,3 +37,4 @@ texture = ExtResource( 3 )
 hframes = 10
 [connection signal="area_entered" from="Cursor" to="." method="_on_Cursor_area_entered"]
 [connection signal="area_exited" from="Cursor" to="." method="_on_Cursor_area_exited"]
+[connection signal="timeout" from="Cursor/CursorTimer" to="." method="_on_CursorTimer_timeout"]

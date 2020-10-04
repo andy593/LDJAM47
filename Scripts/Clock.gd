@@ -5,6 +5,7 @@ var decTime = 0
 var hasScaryTimeHappened = 0
 onready var difficulty = get_node("/root/Loader")
 const SCARYLIGHTNING = preload("res://Scenes/Flash.tscn")
+signal scaryTime
 
 func _process(delta):
 	if time < 10:
@@ -83,6 +84,7 @@ func _on_ClockTimer_timeout():
 		
 func scaryTime():
 	if hasScaryTimeHappened == 0:
+		emit_signal("scaryTime")
 		var lightningInstance = SCARYLIGHTNING.instance()
 		$Scream.play()
 		$Thunder.play()

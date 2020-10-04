@@ -1,16 +1,23 @@
 extends Node2D
 var isMouseClickable = 0
+onready var CursorTimer = $Cursor/CursorTimer
 var drink = 0
 var blood = 0
 var gotCup = false
 signal drinkSend
 
+func _ready():
+	CursorTimer.set_paused(true)
+	
 func _process(_delta):
 	updateCursor()
 	updatePlayerPosition()
-	$Cursor.set_collision_mask(int(drink))
-	$Cursor.set_collision_layer(int(drink))
 	emit_signal("drinkSend")
+	if Input.is_action_pressed("ui_accept"):
+		$Cursor.set_collision_mask_bit(int(drink),true)
+		$Cursor.set_collision_layer_bit(int(drink),true)
+		CursorTimer.set_paused(false)
+		CursorTimer.wait_time = 1
 
 
 func _on_Cursor_area_entered(_area):
@@ -21,11 +28,14 @@ func _on_Cursor_area_exited(_area):
 
 func updateCursor(): #changes cursor animation
 	if Input.is_mouse_button_pressed(1):
+		$Cursor.set_collision_mask_bit(int(drink),true)
+		$Cursor.set_collision_layer_bit(int(drink),true)
 		$Cursor/CursorSprite.frame = 0
 	elif isMouseClickable == 1:
 		$Cursor/CursorSprite.frame = 2
 	else:
 		$Cursor/CursorSprite.frame = 1
+
 
 func updatePlayerPosition(): #moves player
 	var mouse_pos = get_global_mouse_position() #ez
@@ -75,3 +85,10 @@ func _on_Cups_GotCup():
 	randomize()
 	var glass = rand_range(1,3)
 	drink = 6 + glass
+
+
+
+func _on_CursorTimer_timeout():
+		CursorTimer.set_paused(true)
+		$Cursor.set_collision_mask_bit(int(drink),false)
+		$Cursor.set_collision_layer_bit(int(drink),false)

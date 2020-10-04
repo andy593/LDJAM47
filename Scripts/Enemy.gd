@@ -13,11 +13,9 @@ func _ready():
 	add_to_group("enemiesGROUP")
 	randomize()
 	var drinkWanted = randi()%4+1
-	$EnemyArea.set_collision_mask(drinkWanted)
-	#$EnemyArea.set_collision_layer(drinkWanted)
+	$EnemyArea.set_collision_mask_bit(drinkWanted,true)
+	$EnemyArea.set_collision_layer_bit(drinkWanted,true)
 	print("E",drinkWanted)
-	print("E",drinkWanted)
-	print(drinkWanted)
 
 func _on_GoToDoor_tween_completed(_object, _key): #tween stuff
 	queue_free()
