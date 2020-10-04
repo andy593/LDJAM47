@@ -1,13 +1,16 @@
-extends Position2D
-const ENEMY = preload("res://Scenes/Enemy.tscn")
-const CLOCK = preload("res://Scenes/Clock.tscn")
-onready var difficulty = get_node("/root/Loader")
+extends Node2D
+#var Number = 0
+const Enemy = preload("res://Scenes/Enemy.tscn")
+onready var tween = $EnemyMoveToDesk
+onready var SpawnTimer = $SpawnTimer
+onready var SpawnPoints = $SpawnPoints #gets stuff
 var enemySpawnColumn = 0
+var currentInUse = []
+var speedUp = 0.05
 var spawn = {}
-
+	
 func get_spawn_position(): #calculates where to put the enemy
-	var points = $EntryPoints.get_children()
-	var canPass = false
+	var points = SpawnPoints.get_children()
 	if enemySpawnColumn >= 4:
 		enemySpawnColumn = 0
 	else:
@@ -19,19 +22,16 @@ func _on_Timer_timeout(): #calls spawn_enemy on timeout,stops more than 5 spawni
 	if enemyAmount <= 4:
 		spawn_enemy()
 	else:
-		$SpawnTimer.wait_time = 1
-		
-func spawn_enemy(): #spawn enemy and tween
-	var tweenSpeed =  1 - .1*difficulty.get_difficulty()
-	if tweenSpeed < .2:
-		tweenSpeed = .2
-	spawn.global_position = get_spawn_position()
-	$Tween.interpolate_property($EnemyRef,"global_position",Vector2($SpawnPoints.global_position.x, $SpawnPoints.global_position.y),Vector2(spawn.global_position.x,spawn.global_position.y),tweenSpeed ,Tween.TRANS_LINEAR)
-	$Tween.start() #tween
+		SpawnTimer.wait_time = 0
 	
+func spawn_enemy(): #spawn enemy and tween
+	spawn.global_position = get_spawn_position()
+	tween.interpolate_property($EnemyRef,"global_position",Vector2($SpawnPoints.global_position.x, $SpawnPoints.global_position.y),Vector2(spawn.global_position.x,spawn.global_position.y),1,Tween.TRANS_LINEAR)
+	tween.start() #tween
+
 func _on_EnemyMoveToDesk_tween_completed(object, _key):
-	$Tween.reset(object) #stops tween animation
-	var enemy = ENEMY.instance()
+	tween.reset(object) #stops tween animation
+	var enemy = Enemy.instance()
 	var main = get_tree().current_scene
 	main.add_child(enemy)
 	enemy.global_position = spawn.global_position

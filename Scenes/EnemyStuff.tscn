@@ -3,6 +3,6 @@
 [ext_resource path="res://Scenes/EnemySpawning.tscn" type="PackedScene" id=1]
 
 [node name="EnemyStuff" type="Node2D"]
+position = Vector2( 0, -0.8909 )
 
 [node name="EnemySpawning" parent="." instance=ExtResource( 1 )]
-position = Vector2( 492.834, 29.2159 )

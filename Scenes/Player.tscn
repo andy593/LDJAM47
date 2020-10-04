@@ -9,6 +9,8 @@
 script = ExtResource( 2 )
 
 [node name="Cursor" parent="." instance=ExtResource( 1 )]
+collision_layer = 0
+collision_mask = 0
 
 [node name="Player" type="Sprite" parent="."]
 position = Vector2( 320, 300 )
@@ -21,15 +23,14 @@ position = Vector2( 18.7781, 38.784 )
 rotation = 3.14159
 scale = Vector2( 1.66667, -1.66667 )
 texture = ExtResource( 3 )
-hframes = 7
+hframes = 10
 frame = 6
 
 [node name="RightArm" type="Sprite" parent="Player"]
-show_behind_parent = true
 position = Vector2( -22.49, 40.6888 )
 rotation = 3.14159
 scale = Vector2( 1.66667, -1.66667 )
 texture = ExtResource( 3 )
-hframes = 7
+hframes = 10
 [connection signal="area_entered" from="Cursor" to="." method="_on_Cursor_area_entered"]
 [connection signal="area_exited" from="Cursor" to="." method="_on_Cursor_area_exited"]

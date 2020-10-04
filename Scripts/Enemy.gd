@@ -1,27 +1,36 @@
-extends Area2D
-
-var enemySeatNumber = 0
-var seat = {}
+extends Node2D
+const Particle = preload("res://Scenes/DeathExplosion.tscn")
+onready var AngerTimer = $AngerTimer
+onready var EnemySprite = $SpriteRef
+onready var EnemySpriteActual = $EnemyArea/EnemySprite
+onready var tween = $GoToDoor
+var drinkWanted = 1
+#func _process(delta):
+	
+	
 
 func _ready():
-	$WaitTimer.start()
-	
-func _process(delta):
-	pass
+	add_to_group("enemiesGROUP")
+	randomize()
+	var drinkWanted = randi()%4+1
+	$EnemyArea.set_collision_mask(drinkWanted)
+	#$EnemyArea.set_collision_layer(drinkWanted)
+	print("E",drinkWanted)
+	print("E",drinkWanted)
+	print(drinkWanted)
 
-func get_seat_position(): #calculates where to put the enemy
-	var points = $Doorway.get_children()
-	var canPass = false
-	if enemySeatNumber >= 4:
-		enemySeatNumber = 0
-	else:
-		enemySeatNumber += 1
-	return points[enemySeatNumber].global_position
-	
-func sit_down(): #places enemy at seat
-	seat.global_position = get_seat_position()
-	$Tween.interpolate_property($EnemySprite, "global_position", Vector2($Doorway.global_position.x, $Doorway.global_position.y), Vector2(seat.global_position.x,seat.global_position.y),1,Tween.TRANS_LINEAR)
-	
-func _on_WaitTimer_timeout():
-	get_seat_position()
-	sit_down()
+func _on_GoToDoor_tween_completed(_object, _key): #tween stuff
+	queue_free()
+
+func _on_AngerTimer_timeout(): #if the customer gets angry they explode
+	var particle = Particle.instance()
+	var main = get_tree().current_scene
+	main.add_child(particle)
+	particle.global_position = position
+	queue_free()
+
+func _on_EnemyArea_Death():
+	EnemySpriteActual.hide()
+	AngerTimer.paused = true
+	tween.interpolate_property($SpriteRef,("global_position"),Vector2($EnemyArea/EnemySprite.global_position.x, $EnemyArea/EnemySprite.global_position.y),Vector2(440,20),1,Tween.TRANS_LINEAR) #no idea how to fix
+	tween.start() #tween
