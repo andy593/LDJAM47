@@ -25,6 +25,7 @@ hframes = 7
 frame = 6
 
 [node name="RightArm" type="Sprite" parent="Player"]
+show_behind_parent = true
 position = Vector2( -22.49, 40.6888 )
 rotation = 3.14159
 scale = Vector2( 1.66667, -1.66667 )

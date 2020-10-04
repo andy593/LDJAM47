@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/BarCounter.png" type="Texture" id=2]
@@ -6,13 +6,54 @@
 [ext_resource path="res://Sounds/mainmusic.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Scenes/Clock.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sounds/mainmusicpart2.ogg" type="AudioStream" id=6]
-[ext_resource path="res://Scenes/World.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/EnemyStuff.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/World.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Sillhouette.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Crab.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sprites/Background.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Sillhouette3.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Sillhouette2.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Sillhouette4.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Sprites/YardNormal.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/WindowNormal.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/YardNormalForeground.png" type="Texture" id=16]
 
 [node name="World" type="Node"]
 script = ExtResource( 7 )
 
-[node name="EnemyStuff" parent="." instance=ExtResource( 8 )]
+[node name="WindowNormal" type="Sprite" parent="."]
+position = Vector2( 257, 130 )
+scale = Vector2( 1.35789, 1.37952 )
+texture = ExtResource( 15 )
+
+[node name="YardNormal" type="Sprite" parent="."]
+position = Vector2( 519.991, 150.982 )
+scale = Vector2( 1.35436, 1.35436 )
+texture = ExtResource( 14 )
+
+[node name="Sillhouette" parent="." instance=ExtResource( 8 )]
+position = Vector2( -15, 178 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="Sillhouette2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 697, 195 )
+rotation = -3.14159
+scale = Vector2( 0.5, -0.5 )
+
+[node name="Sillhouette3" parent="." instance=ExtResource( 11 )]
+position = Vector2( -97.7395, 127.181 )
+
+[node name="Sillhouette4" parent="." instance=ExtResource( 13 )]
+position = Vector2( -173, 150 )
+
+[node name="YardNormalForeground" type="Sprite" parent="."]
+position = Vector2( 519.991, 150.982 )
+scale = Vector2( 1.354, 1.354 )
+texture = ExtResource( 16 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 320, 287 )
+scale = Vector2( 1.33371, 1.33371 )
+texture = ExtResource( 10 )
 
 [node name="BarCounter" type="Sprite" parent="."]
 position = Vector2( 320.707, 270 )
@@ -23,7 +64,7 @@ texture = ExtResource( 2 )
 position = Vector2( 103.139, 355.028 )
 
 [node name="Clock" parent="." instance=ExtResource( 5 )]
-position = Vector2( 44.5593, 36.4147 )
+position = Vector2( 34, 10 )
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
@@ -34,4 +75,8 @@ stream = ExtResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, -10 )
+z_index = 2
+
+[node name="Crab" parent="." instance=ExtResource( 9 )]
+position = Vector2( 716.866, 376.69 )
 [connection signal="finished" from="BGM" to="." method="_on_BGM_finished"]

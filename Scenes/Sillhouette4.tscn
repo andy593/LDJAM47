@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Sillhouette.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Sillhouette4.gd" type="Script" id=2]
+
+[node name="Sillhouette" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+minRange = 20
+maxRange = 40
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 1153.07, 0 )
+scale = Vector2( -1, 1 )
+offset = Vector2( 0, 0.111828 )
+frame = 3
+
+[node name="Timer" parent="." index="2"]
+wait_time = 75.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Clock.gd" type="Script" id=1]
 [ext_resource path="res://DS-DIGI.TTF" type="DynamicFontData" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Sounds/woah.wav" type="AudioStream" id=4]
 [ext_resource path="res://Sounds/Clock.wav" type="AudioStream" id=5]
 [ext_resource path="res://Sounds/Thunder.wav" type="AudioStream" id=6]
+[ext_resource path="res://Scenes/Whispers.wav" type="AudioStream" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -36,6 +37,14 @@ __meta__ = {
 [node name="ClockTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="TickTockTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="DifficultyTimer" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
+
 [node name="Scream" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
 volume_db = -20.0
@@ -47,8 +56,11 @@ autoplay = true
 [node name="Thunder" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
 
-[node name="TickTockTimer" type="Timer" parent="."]
-wait_time = 2.0
-autostart = true
+[node name="Whispers" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2( 0.0612383, 617.856 )
+stream = ExtResource( 7 )
+volume_db = -20.0
+attenuation = 0.840896
 [connection signal="timeout" from="ClockTimer" to="." method="_on_ClockTimer_timeout"]
 [connection signal="timeout" from="TickTockTimer" to="." method="_on_TickTockTimer_timeout"]
+[connection signal="timeout" from="DifficultyTimer" to="." method="_on_DifficultyTimer_timeout"]

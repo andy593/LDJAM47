@@ -3,8 +3,9 @@ extends Node2D
 var time = 0
 var decTime = 0
 var hasScaryTimeHappened = 0
+onready var difficulty = get_node("/root/Loader")
 const SCARYLIGHTNING = preload("res://Scenes/Flash.tscn")
-	
+
 func _process(delta):
 	if time < 10:
 		$ClockText.text = "11:59:0" + str(time)
@@ -85,6 +86,7 @@ func scaryTime():
 		var lightningInstance = SCARYLIGHTNING.instance()
 		$Scream.play()
 		$Thunder.play()
+		$Whispers.play()
 		$ClockText.modulate.r = 500
 		$Sprite.frame = 1
 		self.add_child(lightningInstance)
@@ -94,3 +96,7 @@ func scaryTime():
 
 func _on_TickTockTimer_timeout():
 	$TickTock.play()
+
+
+func _on_DifficultyTimer_timeout():
+	difficulty.set_difficulty(1)
