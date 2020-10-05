@@ -1,0 +1,222 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/HelpScreen.gd" type="Script" id=1]
+[ext_resource path="res://MainFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Sprites/white-circle-icon-255195.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/HelpScreen.png" type="Texture" id=4]
+[ext_resource path="res://Sounds/Whispers.wav" type="AudioStream" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "TextFadeInAndOut"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Text1/Text1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 3, 6, 7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Text2/Text2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3, 5, 6, 7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 6, 9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0.513726 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("AnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 9 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Tutorial", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("TutoralText:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "" ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Tutorial"
+length = 53.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 6, 8, 15, 17, 27, 29, 32, 33, 37, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 529.851, 310.072 ), Vector2( 529.851, 310.072 ), Vector2( 809.851, 310.072 ), Vector2( 809.851, 310.072 ), Vector2( 249.851, 358.072 ), Vector2( 249.851, 358.072 ), Vector2( 113.851, 374.072 ), Vector2( 113.851, 374.072 ), Vector2( 65.8506, 366.072 ), Vector2( 65.8506, 366.072 ), Vector2( 24.8506, 374.072 ), Vector2( 24.8506, 374.072 ), Vector2( 16.8506, 317.072 ), Vector2( 16.8506, 317.072 ), Vector2( 92.8506, 323.072 ), Vector2( 92.8506, 323.072 ), Vector2( 103.851, 269.072 ), Vector2( 103.851, 269.072 ), Vector2( 63.8506, 261.072 ), Vector2( 63.8506, 261.072 ), Vector2( 23.8506, 261.072 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6, 27, 29, 46, 47, 49 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.01, 0.01 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.238724, 0.238724 ), Vector2( 0.238724, 0.238724 ), Vector2( -0.000932516, -0.000932516 ), Vector2( -0.000932516, -0.000932516 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TutoralText:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 3, 4, 6, 9, 11, 12, 14, 18, 20.1, 21.1, 23, 24, 26, 30, 32, 33, 35, 36, 37.6, 38, 39, 40, 41, 42, 43, 44, 46, 49, 49.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "", "This is you.", "", "Your job is to serve customers.", "", "By grabbing one of these dishes,", "", "You can give the the customer the menu item of their choice.", "", "These are the beer taps.", "", "Grab a mug, pay attention to the designs on the handles,", "", "and give the customer the drink they asked for.", "", "This is box wine. Fill a wine glass with it.", "", "This is our \"delicious\" \"soup\". Put it in a bowl, should somebody ask for it.", "", "Anything else, including", "", "Pickles,", "Vinegar,", "Snoot Beer,", "Momster,", "Dr. Bob,", "Or Milk", "Must be served in a mug.", "", "", "Good luck...." ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TutoralText:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1, 6, 9, 27, 30, 49, 49.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 255.102, 170.496 ), Vector2( 255.102, 170.496 ), Vector2( 287.102, 146.496 ), Vector2( 287.102, 146.496 ), Vector2( 7.1015, 162.496 ), Vector2( 7.1015, 162.496 ), Vector2( 328.102, 210.496 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ColorRect:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 49.5, 52.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0.513726 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
+}
+
+[node name="HelpScreen" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 426.986, 239.103 )
+scale = Vector2( 0.502334, 0.50226 )
+texture = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -13.5946
+margin_top = -10.0
+margin_right = 871.405
+margin_bottom = 489.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TutoralText" type="RichTextLabel" parent="."]
+margin_left = 328.102
+margin_top = 210.496
+margin_right = 895.102
+margin_bottom = 322.495
+custom_fonts/normal_font = ExtResource( 2 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text1" type="Node2D" parent="."]
+position = Vector2( 167.102, 164.996 )
+
+[node name="Text1" type="RichTextLabel" parent="Text1"]
+margin_left = 8.0
+margin_top = 23.5
+margin_right = 520.0
+margin_bottom = 86.5
+custom_fonts/normal_font = ExtResource( 2 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+text = "Your shift ends at midnight."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text2" type="Node2D" parent="."]
+
+[node name="Text2" type="RichTextLabel" parent="Text2"]
+margin_left = 207.454
+margin_top = 222.952
+margin_right = 719.454
+margin_bottom = 285.952
+custom_fonts/normal_font = ExtResource( 2 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+text = "Hang in there."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/TextFadeInAndOut = SubResource( 1 )
+anims/Tutorial = SubResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 23.8506, 261.072 )
+scale = Vector2( -0.000932516, -0.000932516 )
+texture = ExtResource( 3 )
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -20.0
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

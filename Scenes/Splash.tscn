@@ -27,12 +27,13 @@ tracks/0/keys = {
 script = ExtResource( 3 )
 
 [node name="Splash" type="Sprite" parent="."]
-position = Vector2( 320, 240 )
+position = Vector2( 427, 243 )
+scale = Vector2( 1.335, 1.18 )
 texture = ExtResource( 4 )
 
 [node name="GungaLogo" type="Sprite" parent="."]
-position = Vector2( 434.874, 107.322 )
-scale = Vector2( 0.473663, 0.473663 )
+position = Vector2( 580.758, 85.2723 )
+scale = Vector2( 0.634501, 0.56058 )
 texture = ExtResource( 1 )
 hframes = 5
 
@@ -52,7 +53,7 @@ autostart = true
 [node name="Tween" type="Tween" parent="."]
 
 [node name="FadeOut" type="ColorRect" parent="."]
-margin_right = 640.0
+margin_right = 873.0
 margin_bottom = 480.0
 color = Color( 0, 0, 0, 0 )
 __meta__ = {

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Sprites/Strikes.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/StrikeList.gd" type="Script" id=2]
+[ext_resource path="res://Sounds/DoranBest.wav" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "0Strikes"
@@ -331,3 +332,7 @@ anims/0Strikes = SubResource( 1 )
 anims/1Strike = SubResource( 2 )
 anims/2Strike = SubResource( 3 )
 anims/3Strikes = SubResource( 4 )
+
+[node name="Buzzer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -20.0

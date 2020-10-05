@@ -45,22 +45,20 @@ autostart = true
 wait_time = 15.0
 autostart = true
 
-[node name="Scream" type="AudioStreamPlayer2D" parent="."]
+[node name="Scream" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = -20.0
 
-[node name="TickTock" type="AudioStreamPlayer2D" parent="."]
+[node name="TickTock" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 autoplay = true
 
-[node name="Thunder" type="AudioStreamPlayer2D" parent="."]
+[node name="Thunder" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 
-[node name="Whispers" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2( 0.0612383, 617.856 )
+[node name="Whispers" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 volume_db = -20.0
-attenuation = 0.840896
 [connection signal="timeout" from="ClockTimer" to="." method="_on_ClockTimer_timeout"]
 [connection signal="timeout" from="TickTockTimer" to="." method="_on_TickTockTimer_timeout"]
 [connection signal="timeout" from="DifficultyTimer" to="." method="_on_DifficultyTimer_timeout"]

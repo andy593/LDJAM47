@@ -2,7 +2,6 @@ extends Node2D
 var isMouseClickable = 0
 onready var CurrentlyInHand = get_node("/root/Loader")
 var blood = 0
-var gotCup = false
 signal drinkSend
 	
 func _process(_delta):
@@ -27,7 +26,7 @@ func updateCursor(): #changes cursor animation
 
 func updatePlayerPosition(): #moves player
 	var mouse_pos = get_global_mouse_position() #ez
-	$Player.position.x = mouse_pos.x / 2 + 160
+	$Player.position.x = mouse_pos.x / 2 + 60
 	if mouse_pos.x < 192:  #thanks mardood
 		$Player.frame = 2
 		$Player/LeftArm.show_behind_parent = true
@@ -55,15 +54,27 @@ func _on_Bloodweiser_Bloodweiser():
 func _on_DrBob_DrBob():
 	Drink_update_update_lolidk(4)
 
-func _on_Cups_GotCup():
-	gotCup = true
-	print("Got cup!")
-	randomize()
-	var glass = rand_range(1,3)
-	CurrentlyInHand.update_drink(6 + glass)
-
 func Drink_update_update_lolidk(drinknum):
-	if gotCup == true:
+	if (CurrentlyInHand.get_drink() == 8):
 		CurrentlyInHand.update_drink(drinknum)
+	else:
+		pass
+
+func _on_Rglass_GotRglass():
+	CurrentlyInHand.update_drink(8)
+
+func _on_Wglass_GotWglass():
+	CurrentlyInHand.update_drink(9)
+
+func _on_Soupbowls_GotSoupCont():
+	CurrentlyInHand.update_drink(7)
+
+func _on_Bottomselect_BottomItemGrabbed(num):
+	if (num != 1) and (num != 3) and (CurrentlyInHand.get_drink() == 8):
+		CurrentlyInHand.update_drink(9 + num)
+	elif num == 1 and (CurrentlyInHand.get_drink() == 9):
+		CurrentlyInHand.update_drink(9 + num)
+	elif num == 3 and (CurrentlyInHand.get_drink() == 7):
+		CurrentlyInHand.update_drink(9 + num)
 	else:
 		pass

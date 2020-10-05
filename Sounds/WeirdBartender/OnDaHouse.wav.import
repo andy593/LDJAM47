@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/OnDaHouse.wav-831fda455961f21c54608a3e73c6aaef.sample"
+
+[deps]
+
+source_file="res://Sounds/WeirdBartender/OnDaHouse.wav"
+dest_files=[ "res://.import/OnDaHouse.wav-831fda455961f21c54608a3e73c6aaef.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

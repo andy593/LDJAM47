@@ -99,7 +99,3 @@ func scaryTime():
 
 func _on_TickTockTimer_timeout():
 	$TickTock.play()
-
-
-func _on_DifficultyTimer_timeout():
-	difficulty.set_difficulty(1)
