@@ -1,0 +1,138 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Sprites/BigDrinksSheet.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Soup2.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Pickles.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Monster.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Milk.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/DrBob2.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Vinegar.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/BoxWine.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/SnootBeer2.gd" type="Script" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 17.0591, 24.7909 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8.57143, 12.6785 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 17.6516, 20.5753 )
+
+[node name="ExtraDrinks" type="Node"]
+
+[node name="Soup" type="Area2D" parent="."]
+position = Vector2( 65.5993, 364.335 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Soup"]
+position = Vector2( 2.4865, -1.51364 )
+scale = Vector2( 1.57602, 1.57602 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Soup"]
+position = Vector2( 0.627655, 1.57941 )
+shape = SubResource( 1 )
+
+[node name="Pickles" type="Area2D" parent="."]
+position = Vector2( 21, 366 )
+scale = Vector2( 1.4, 1.4 )
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Pickles"]
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickles"]
+position = Vector2( 0, 4.99997 )
+shape = SubResource( 2 )
+
+[node name="Monster" type="Area2D" parent="."]
+position = Vector2( 104, 267 )
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Monster"]
+texture = ExtResource( 1 )
+hframes = 8
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Monster"]
+position = Vector2( 0, -1.05546 )
+shape = SubResource( 3 )
+
+[node name="Milk" type="Area2D" parent="."]
+position = Vector2( 24, 267 )
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Milk"]
+position = Vector2( -2.94803, -6.05197 )
+scale = Vector2( 1.37825, 1.37825 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Milk"]
+position = Vector2( 0, -2.05546 )
+shape = SubResource( 3 )
+
+[node name="DrBob" type="Area2D" parent="."]
+position = Vector2( 64, 267 )
+script = ExtResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="DrBob"]
+position = Vector2( 0.929138, -8.92914 )
+scale = Vector2( 1.55807, 1.55807 )
+texture = ExtResource( 1 )
+hframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DrBob"]
+position = Vector2( 0, -3.05546 )
+shape = SubResource( 3 )
+
+[node name="Vinegar" type="Area2D" parent="."]
+position = Vector2( 16, 323 )
+script = ExtResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="Vinegar"]
+position = Vector2( 0.929138, -8.92914 )
+scale = Vector2( 1.28524, 1.55807 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vinegar"]
+position = Vector2( 0, -3.05546 )
+shape = SubResource( 3 )
+
+[node name="BoxWine" type="Area2D" parent="."]
+position = Vector2( 114, 372 )
+script = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="BoxWine"]
+position = Vector2( 0.929138, -8.92914 )
+scale = Vector2( 1.28524, 1.55807 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxWine"]
+position = Vector2( 0, -3.05546 )
+shape = SubResource( 3 )
+
+[node name="SnootBeer" type="Area2D" parent="."]
+position = Vector2( 110, 323 )
+script = ExtResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="SnootBeer"]
+position = Vector2( -16.7307, -8.73071 )
+scale = Vector2( 1.54567, 1.54567 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 4
+
+[node name="CollisionShape2" type="CollisionShape2D" parent="SnootBeer"]
+position = Vector2( -17.263, -3.80979 )
+shape = SubResource( 3 )

@@ -21,17 +21,17 @@ config/icon="res://icon.png"
 
 [autoload]
 
-UserData="*res://addons/github-integration/scripts/user_data.gd"
 RestHandler="*res://addons/github-integration/scenes/RestHandler.tscn"
-PluginSettings="*res://addons/github-integration/scripts/PluginSettings.gd"
 IconLoaderGithub="*res://addons/github-integration/scripts/IconLoaderGithub.gd"
+PluginSettings="*res://addons/github-integration/scripts/PluginSettings.gd"
 Loader="*res://Scripts/Loader.gd"
+UserData="*res://addons/github-integration/scripts/user_data.gd"
 
 [display]
 
-window/size/width=640
+window/size/width=854
 window/size/height=480
-window/size/test_width=1280
+window/size/test_width=1706
 window/size/test_height=960
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/givemeadrinkbartender.ogg-a425f819e031bdaf3754d3b6819501d3.oggstr"
+
+[deps]
+
+source_file="res://Sounds/WeirdCustomer/givemeadrinkbartender.ogg"
+dest_files=[ "res://.import/givemeadrinkbartender.ogg-a425f819e031bdaf3754d3b6819501d3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

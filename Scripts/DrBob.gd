@@ -8,6 +8,7 @@ func on_click():
 	emit_signal("DrBob")
 	$BarTapSprite.frame = 1
 	$PourTimer.start()
+	$SFX.play()
 
 func _on_PourTimer_timeout():
 	$BarTapSprite.frame = 0

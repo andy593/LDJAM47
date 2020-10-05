@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Bartenda.wav-4ee0c4f5ee3b5215057f944d7176c560.sample"
+
+[deps]
+
+source_file="res://Sounds/WeirdCustomer/Bartenda.wav"
+dest_files=[ "res://.import/Bartenda.wav-4ee0c4f5ee3b5215057f944d7176c560.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

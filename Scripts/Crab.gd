@@ -22,3 +22,4 @@ func on_click(): #add score stuff here Andy
 	if MISTAKES.get_mistake() > 0:
 		MISTAKES.made_mistake(-1)
 	CurrentlyInHand.update_drink(0)
+	MISTAKES.add_crab(1)

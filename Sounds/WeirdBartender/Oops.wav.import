@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Oops.wav-1142447d37679b6acb7047ded2b3b547.sample"
+
+[deps]
+
+source_file="res://Sounds/WeirdBartender/Oops.wav"
+dest_files=[ "res://.import/Oops.wav-1142447d37679b6acb7047ded2b3b547.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

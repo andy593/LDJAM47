@@ -4,7 +4,7 @@
 [ext_resource path="res://Sprites/Reticle.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 4.53732
+radius = 0.0297917
 
 [node name="Cursor" type="Area2D"]
 scale = Vector2( 2, 2 )

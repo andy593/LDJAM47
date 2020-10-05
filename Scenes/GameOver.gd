@@ -5,8 +5,8 @@ var lifeValue = 0
 var crabScore = 0
 
 func _ready():
-	totalscore = 43#loader.get_score()
-	crabScore = 5#loader.get_crab()
+	totalscore = loader.get_score()
+	crabScore = loader.get_crab()
 	lifeValue = stepify((totalscore * .53)+(crabScore * 2.09),.01)
 	if totalscore == 0:
 		$ScoreText.text = "Your last moments were completely wasted."
