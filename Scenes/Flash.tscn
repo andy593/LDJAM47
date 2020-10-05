@@ -53,7 +53,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0.3, 1.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 5.24072, 174.064 ), Vector2( 5.241, 180 ) ]
+"values": [ Vector2( 229.241, 198.064 ), Vector2( 229.241, 200 ) ]
 }
 
 [node name="Flash" type="Node2D"]
@@ -70,12 +70,12 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 4.24082
-margin_top = -49.815
-margin_right = 623.241
-margin_bottom = 132.185
+margin_left = 229.241
+margin_top = 200.0
+margin_right = 848.241
+margin_bottom = 382.0
 custom_fonts/normal_font = ExtResource( 1 )
-custom_colors/default_color = Color( 1, 0, 0, 0.615385 )
+custom_colors/default_color = Color( 1, 0, 0, 0 )
 tab_size = 6
 text = "THE SHIFT NEVER ENDS......"
 __meta__ = {
