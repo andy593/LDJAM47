@@ -183,14 +183,11 @@ func bartenderTalk():
 		$BartenderTalk.play()
 		
 func enemyTalk():
-	if int(randi()%6) == 1:
+	if loader.isScaryTimeActive == 1 and int(randi()%5) == 1:
 		randomize()
 		evoicelines.clear()
 		var esoundpath = "lol"
-		if loader.isScaryTimeActive == 0:
-			pass#esoundpath = "res://Sounds/NormalCustomer"
-		if loader.isScaryTimeActive == 1:
-			esoundpath = "res://Sounds/WeirdCustomer"
+		esoundpath = "res://Sounds/WeirdCustomer"
 		var esounddir = Directory.new()
 		esounddir.open(esoundpath)
 		esounddir.list_dir_begin()

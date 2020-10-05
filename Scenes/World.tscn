@@ -410,6 +410,8 @@ volume_db = -10.0
 
 [node name="BartenderTalk" type="AudioStreamPlayer" parent="SeatSpawner2"]
 
+[node name="EnemyTalk" type="AudioStreamPlayer" parent="SeatSpawner2"]
+
 [node name="DifficultyTimer" type="Timer" parent="SeatSpawner2"]
 wait_time = 15.0
 autostart = true
@@ -471,6 +473,8 @@ stream = ExtResource( 50 )
 volume_db = -10.0
 
 [node name="BartenderTalk" type="AudioStreamPlayer" parent="SeatSpawner"]
+
+[node name="EnemyTalk" type="AudioStreamPlayer" parent="SeatSpawner"]
 
 [node name="DifficultyTimer" type="Timer" parent="SeatSpawner"]
 wait_time = 15.0
