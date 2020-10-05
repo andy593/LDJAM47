@@ -9,6 +9,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimationPlayer.play("TextFadeInAndOut")
+	$SFX.play()
 	
 func _process(delta):
 	if Input.is_mouse_button_pressed(1):

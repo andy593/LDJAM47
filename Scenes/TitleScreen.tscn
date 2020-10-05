@@ -44,6 +44,7 @@ stream = ExtResource( 6 )
 
 [node name="BGM" type="AudioStreamPlayer" parent="TitleScreen"]
 stream = ExtResource( 8 )
+volume_db = -10.0
 
 [node name="FadeOut" type="ColorRect" parent="TitleScreen"]
 visible = false

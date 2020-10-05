@@ -8,3 +8,4 @@ func _input_event(_viewport, event, _shape_idx):
 func on_click():
 	if CurrentlyInHand.get_drink() == 8:
 		CurrentlyInHand.update_drink(11)
+		$SFX.play()

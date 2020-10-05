@@ -67,9 +67,8 @@ func get_crab():
 	return crabScore
 	
 func reset_all():
-	var currentDifficulty = 0
-	var MISTAKES = 0
-	var CurrentlyInHand = 0
-	var isScaryTimeActive = 0
-	var totalScore = 0
-	var crabScore = 0
+	MISTAKES = 0
+	CurrentlyInHand = 0
+	isScaryTimeActive = 0
+	totalScore = 0
+	crabScore = 0

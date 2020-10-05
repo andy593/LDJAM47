@@ -7,4 +7,5 @@ func _input_event(_viewport, event, _shape_idx):
 	
 func on_click():
 	if CurrentlyInHand.get_drink() == 7:
+		$SFX.play()
 		CurrentlyInHand.update_drink(12)

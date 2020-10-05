@@ -310,18 +310,21 @@ position = Vector2( -1, 1 )
 script = ExtResource( 2 )
 
 [node name="Strike1" type="Sprite" parent="."]
+visible = false
 position = Vector2( 34, 33 )
 rotation = 0.225815
 texture = ExtResource( 1 )
 hframes = 2
 
 [node name="Strike2" type="Sprite" parent="."]
+visible = false
 position = Vector2( 101, 35 )
 rotation = -0.118465
 texture = ExtResource( 1 )
 hframes = 2
 
 [node name="Strike3" type="Sprite" parent="."]
+visible = false
 position = Vector2( 168, 31 )
 rotation = -0.36627
 texture = ExtResource( 1 )
@@ -333,6 +336,6 @@ anims/1Strike = SubResource( 2 )
 anims/2Strike = SubResource( 3 )
 anims/3Strikes = SubResource( 4 )
 
-[node name="Buzzer" type="AudioStreamPlayer2D" parent="."]
+[node name="Buzzer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -20.0
+volume_db = -15.0

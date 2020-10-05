@@ -54,16 +54,16 @@
 [ext_resource path="res://Scenes/EnemyArea.gd" type="Script" id=52]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 17.0591, 24.7909 )
+extents = Vector2( 17.9245, 28.7869 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8.57143, 12.6785 )
+extents = Vector2( 17.0591, 24.7909 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 17.6516, 20.5753 )
+extents = Vector2( 8.57143, 12.6785 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 17.9245, 28.7869 )
+extents = Vector2( 17.6516, 20.5753 )
 
 [node name="World" type="Node"]
 script = ExtResource( 7 )
@@ -111,6 +111,198 @@ position = Vector2( 459.707, 316 )
 scale = Vector2( 1.33371, 1.33371 )
 texture = ExtResource( 10 )
 
+[node name="SeatSpawner5" type="Node2D" parent="."]
+position = Vector2( 617, 383 )
+script = ExtResource( 17 )
+
+[node name="Enemy" type="Area2D" parent="SeatSpawner5"]
+visible = false
+position = Vector2( 36.9999, -23 )
+scale = Vector2( 3, 3 )
+script = ExtResource( 52 )
+
+[node name="Sprite" type="Sprite" parent="SeatSpawner5/Enemy"]
+texture = ExtResource( 31 )
+hframes = 5
+
+[node name="Hitbox" type="CollisionShape2D" parent="SeatSpawner5/Enemy"]
+position = Vector2( 0.0297241, -6.91229 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="BubbleSprite" type="Sprite" parent="SeatSpawner5/Enemy"]
+visible = false
+position = Vector2( -25.2215, -56.686 )
+scale = Vector2( 0.666667, 0.666667 )
+texture = ExtResource( 32 )
+
+[node name="WantSprite" type="Sprite" parent="SeatSpawner5/Enemy"]
+visible = false
+position = Vector2( -26.6203, -54.6344 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 49 )
+hframes = 18
+
+[node name="SpawnTimer" type="Timer" parent="SeatSpawner5"]
+wait_time = 4096.0
+one_shot = true
+
+[node name="AngerTimer" type="Timer" parent="SeatSpawner5"]
+one_shot = true
+
+[node name="Door" type="Position2D" parent="SeatSpawner5"]
+position = Vector2( 42, -170 )
+
+[node name="Seat" type="Position2D" parent="SeatSpawner5"]
+position = Vector2( -250, -30 )
+
+[node name="TweenToSeat" type="Tween" parent="SeatSpawner5"]
+
+[node name="TweenToDoor" type="Tween" parent="SeatSpawner5"]
+
+[node name="NormalMistake" type="AudioStreamPlayer" parent="SeatSpawner5"]
+stream = ExtResource( 51 )
+
+[node name="NormalGood" type="AudioStreamPlayer" parent="SeatSpawner5"]
+stream = ExtResource( 50 )
+volume_db = -10.0
+
+[node name="BartenderTalk" type="AudioStreamPlayer" parent="SeatSpawner5"]
+
+[node name="EnemyTalk" type="AudioStreamPlayer" parent="SeatSpawner5"]
+
+[node name="DifficultyTimer" type="Timer" parent="SeatSpawner5"]
+wait_time = 15.0
+autostart = true
+
+[node name="SeatSpawner4" type="Node2D" parent="."]
+position = Vector2( 617, 383 )
+script = ExtResource( 17 )
+
+[node name="Enemy" type="Area2D" parent="SeatSpawner4"]
+visible = false
+position = Vector2( 36.9999, -23 )
+scale = Vector2( 3, 3 )
+script = ExtResource( 52 )
+
+[node name="Sprite" type="Sprite" parent="SeatSpawner4/Enemy"]
+texture = ExtResource( 31 )
+hframes = 5
+
+[node name="Hitbox" type="CollisionShape2D" parent="SeatSpawner4/Enemy"]
+position = Vector2( 0.0297241, -6.91229 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="BubbleSprite" type="Sprite" parent="SeatSpawner4/Enemy"]
+visible = false
+position = Vector2( -25.2215, -56.686 )
+scale = Vector2( 0.666667, 0.666667 )
+texture = ExtResource( 32 )
+
+[node name="WantSprite" type="Sprite" parent="SeatSpawner4/Enemy"]
+visible = false
+position = Vector2( -26.6203, -54.6344 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 49 )
+hframes = 18
+
+[node name="SpawnTimer" type="Timer" parent="SeatSpawner4"]
+wait_time = 4096.0
+one_shot = true
+
+[node name="AngerTimer" type="Timer" parent="SeatSpawner4"]
+one_shot = true
+
+[node name="Door" type="Position2D" parent="SeatSpawner4"]
+position = Vector2( 42, -170 )
+
+[node name="Seat" type="Position2D" parent="SeatSpawner4"]
+position = Vector2( -90, -30 )
+
+[node name="TweenToSeat" type="Tween" parent="SeatSpawner4"]
+
+[node name="TweenToDoor" type="Tween" parent="SeatSpawner4"]
+
+[node name="NormalMistake" type="AudioStreamPlayer" parent="SeatSpawner4"]
+stream = ExtResource( 51 )
+
+[node name="NormalGood" type="AudioStreamPlayer" parent="SeatSpawner4"]
+stream = ExtResource( 50 )
+volume_db = -10.0
+
+[node name="BartenderTalk" type="AudioStreamPlayer" parent="SeatSpawner4"]
+
+[node name="EnemyTalk" type="AudioStreamPlayer" parent="SeatSpawner4"]
+
+[node name="DifficultyTimer" type="Timer" parent="SeatSpawner4"]
+wait_time = 15.0
+autostart = true
+
+[node name="SeatSpawner3" type="Node2D" parent="."]
+position = Vector2( 617, 383 )
+script = ExtResource( 17 )
+
+[node name="Enemy" type="Area2D" parent="SeatSpawner3"]
+visible = false
+position = Vector2( 36.9999, -23 )
+scale = Vector2( 3, 3 )
+script = ExtResource( 52 )
+
+[node name="Sprite" type="Sprite" parent="SeatSpawner3/Enemy"]
+texture = ExtResource( 31 )
+hframes = 5
+
+[node name="Hitbox" type="CollisionShape2D" parent="SeatSpawner3/Enemy"]
+position = Vector2( 0.0297241, -6.91229 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="BubbleSprite" type="Sprite" parent="SeatSpawner3/Enemy"]
+visible = false
+position = Vector2( -25.2215, -56.686 )
+scale = Vector2( 0.666667, 0.666667 )
+texture = ExtResource( 32 )
+
+[node name="WantSprite" type="Sprite" parent="SeatSpawner3/Enemy"]
+visible = false
+position = Vector2( -26.6203, -54.6344 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 49 )
+hframes = 18
+
+[node name="SpawnTimer" type="Timer" parent="SeatSpawner3"]
+wait_time = 4096.0
+one_shot = true
+
+[node name="AngerTimer" type="Timer" parent="SeatSpawner3"]
+one_shot = true
+
+[node name="Door" type="Position2D" parent="SeatSpawner3"]
+position = Vector2( 42, -170 )
+
+[node name="Seat" type="Position2D" parent="SeatSpawner3"]
+position = Vector2( 100, -30 )
+
+[node name="TweenToSeat" type="Tween" parent="SeatSpawner3"]
+
+[node name="TweenToDoor" type="Tween" parent="SeatSpawner3"]
+
+[node name="NormalMistake" type="AudioStreamPlayer" parent="SeatSpawner3"]
+stream = ExtResource( 51 )
+
+[node name="NormalGood" type="AudioStreamPlayer" parent="SeatSpawner3"]
+stream = ExtResource( 50 )
+volume_db = -10.0
+
+[node name="BartenderTalk" type="AudioStreamPlayer" parent="SeatSpawner3"]
+
+[node name="EnemyTalk" type="AudioStreamPlayer" parent="SeatSpawner3"]
+
+[node name="DifficultyTimer" type="Timer" parent="SeatSpawner3"]
+wait_time = 15.0
+autostart = true
+
 [node name="BarCounter" type="Sprite" parent="."]
 position = Vector2( 459.54, 262.833 )
 scale = Vector2( 1.34, 1 )
@@ -141,6 +333,35 @@ position = Vector2( 57.1009, 307.245 )
 scale = Vector2( 1.2, 1.21 )
 texture = ExtResource( 36 )
 
+[node name="DrBob" parent="." instance=ExtResource( 3 )]
+position = Vector2( 292, 339 )
+z_index = 2
+script = ExtResource( 21 )
+
+[node name="BarTapSprite" parent="DrBob" index="0"]
+texture = ExtResource( 24 )
+
+[node name="Bloodweiser" parent="." instance=ExtResource( 3 )]
+position = Vector2( 251, 339 )
+z_index = 2
+script = ExtResource( 22 )
+
+[node name="BarTapSprite" parent="Bloodweiser" index="0"]
+texture = ExtResource( 34 )
+
+[node name="Crudlite" parent="." instance=ExtResource( 3 )]
+position = Vector2( 210, 339 )
+z_index = 2
+script = ExtResource( 19 )
+
+[node name="BarTapSprite" parent="Crudlite" index="0"]
+texture = ExtResource( 33 )
+
+[node name="Snootbeer" parent="." instance=ExtResource( 3 )]
+position = Vector2( 169, 339 )
+z_index = 2
+script = ExtResource( 20 )
+
 [node name="ExtraDrinks" parent="." instance=ExtResource( 40 )]
 
 [node name="Soup2" type="Area2D" parent="ExtraDrinks"]
@@ -156,7 +377,7 @@ frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExtraDrinks/Soup2"]
 position = Vector2( 0.627655, 1.57941 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Pickles2" type="Area2D" parent="ExtraDrinks"]
 position = Vector2( 21, 366 )
@@ -170,7 +391,7 @@ frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExtraDrinks/Pickles2"]
 position = Vector2( 0, 4.99997 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Monster2" type="Area2D" parent="ExtraDrinks"]
 position = Vector2( 104, 267 )
@@ -183,7 +404,7 @@ frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExtraDrinks/Monster2"]
 position = Vector2( 0, -1.05546 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Milk2" type="Area2D" parent="ExtraDrinks"]
 position = Vector2( 24, 267 )
@@ -198,7 +419,7 @@ frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExtraDrinks/Milk2"]
 position = Vector2( 0, -2.05546 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="DrBob2" type="Area2D" parent="ExtraDrinks"]
 position = Vector2( 64, 267 )
@@ -212,7 +433,7 @@ hframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExtraDrinks/DrBob2"]
 position = Vector2( 0, -3.05546 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Vinegar2" type="Area2D" parent="ExtraDrinks"]
 position = Vector2( 16, 323 )
@@ -227,7 +448,7 @@ frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExtraDrinks/Vinegar2"]
 position = Vector2( 0, -3.05546 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="BoxWine2" type="Area2D" parent="ExtraDrinks"]
 position = Vector2( 114, 372 )
@@ -242,7 +463,7 @@ frame = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExtraDrinks/BoxWine2"]
 position = Vector2( 0, -3.05546 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="SnootBeer2" type="Area2D" parent="ExtraDrinks"]
 position = Vector2( 110, 323 )
@@ -257,36 +478,7 @@ frame = 4
 
 [node name="CollisionShape2" type="CollisionShape2D" parent="ExtraDrinks/SnootBeer2"]
 position = Vector2( -17.263, -3.80979 )
-shape = SubResource( 3 )
-
-[node name="DrBob" parent="." instance=ExtResource( 3 )]
-position = Vector2( 308, 385 )
-z_index = 2
-script = ExtResource( 21 )
-
-[node name="BarTapSprite" parent="DrBob" index="0"]
-texture = ExtResource( 24 )
-
-[node name="Bloodweiser" parent="." instance=ExtResource( 3 )]
-position = Vector2( 263, 385.028 )
-z_index = 2
-script = ExtResource( 22 )
-
-[node name="BarTapSprite" parent="Bloodweiser" index="0"]
-texture = ExtResource( 34 )
-
-[node name="Crudlite" parent="." instance=ExtResource( 3 )]
-position = Vector2( 213, 385.028 )
-z_index = 2
-script = ExtResource( 19 )
-
-[node name="BarTapSprite" parent="Crudlite" index="0"]
-texture = ExtResource( 33 )
-
-[node name="Snootbeer" parent="." instance=ExtResource( 3 )]
-position = Vector2( 163, 385.028 )
-z_index = 2
-script = ExtResource( 20 )
+shape = SubResource( 4 )
 
 [node name="Clock" parent="." instance=ExtResource( 5 )]
 position = Vector2( 29, 17 )
@@ -352,134 +544,6 @@ modulate = Color( 1, 1, 1, 0.478431 )
 position = Vector2( 193, -12 )
 z_index = 2
 
-[node name="SeatSpawner2" type="Node2D" parent="."]
-position = Vector2( 617, 383 )
-script = ExtResource( 17 )
-
-[node name="Enemy" type="Area2D" parent="SeatSpawner2"]
-visible = false
-position = Vector2( 36.9999, -23 )
-scale = Vector2( 3, 3 )
-script = ExtResource( 52 )
-
-[node name="Sprite" type="Sprite" parent="SeatSpawner2/Enemy"]
-texture = ExtResource( 31 )
-hframes = 5
-
-[node name="Hitbox" type="CollisionShape2D" parent="SeatSpawner2/Enemy"]
-position = Vector2( 0.0297241, -6.91229 )
-shape = SubResource( 4 )
-disabled = true
-
-[node name="BubbleSprite" type="Sprite" parent="SeatSpawner2/Enemy"]
-visible = false
-position = Vector2( -25.2215, -56.686 )
-scale = Vector2( 0.666667, 0.666667 )
-texture = ExtResource( 32 )
-
-[node name="WantSprite" type="Sprite" parent="SeatSpawner2/Enemy"]
-visible = false
-position = Vector2( -26.6203, -54.6344 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 49 )
-hframes = 18
-
-[node name="SpawnTimer" type="Timer" parent="SeatSpawner2"]
-wait_time = 4096.0
-one_shot = true
-
-[node name="AngerTimer" type="Timer" parent="SeatSpawner2"]
-one_shot = true
-
-[node name="Door" type="Position2D" parent="SeatSpawner2"]
-position = Vector2( 42, -170 )
-
-[node name="Seat" type="Position2D" parent="SeatSpawner2"]
-position = Vector2( -169, -21 )
-
-[node name="TweenToSeat" type="Tween" parent="SeatSpawner2"]
-
-[node name="TweenToDoor" type="Tween" parent="SeatSpawner2"]
-
-[node name="NormalMistake" type="AudioStreamPlayer" parent="SeatSpawner2"]
-stream = ExtResource( 51 )
-
-[node name="NormalGood" type="AudioStreamPlayer" parent="SeatSpawner2"]
-stream = ExtResource( 50 )
-volume_db = -10.0
-
-[node name="BartenderTalk" type="AudioStreamPlayer" parent="SeatSpawner2"]
-
-[node name="EnemyTalk" type="AudioStreamPlayer" parent="SeatSpawner2"]
-
-[node name="DifficultyTimer" type="Timer" parent="SeatSpawner2"]
-wait_time = 15.0
-autostart = true
-
-[node name="SeatSpawner" type="Node2D" parent="."]
-position = Vector2( 617, 383 )
-script = ExtResource( 17 )
-
-[node name="Enemy" type="Area2D" parent="SeatSpawner"]
-visible = false
-position = Vector2( 36.9999, -23 )
-scale = Vector2( 3, 3 )
-script = ExtResource( 52 )
-
-[node name="Sprite" type="Sprite" parent="SeatSpawner/Enemy"]
-texture = ExtResource( 31 )
-hframes = 5
-
-[node name="Hitbox" type="CollisionShape2D" parent="SeatSpawner/Enemy"]
-position = Vector2( 0.0297241, -6.91229 )
-shape = SubResource( 4 )
-disabled = true
-
-[node name="BubbleSprite" type="Sprite" parent="SeatSpawner/Enemy"]
-visible = false
-position = Vector2( -25.2215, -56.686 )
-scale = Vector2( 0.666667, 0.666667 )
-texture = ExtResource( 32 )
-
-[node name="WantSprite" type="Sprite" parent="SeatSpawner/Enemy"]
-visible = false
-position = Vector2( -26.6203, -54.6344 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 49 )
-hframes = 18
-
-[node name="SpawnTimer" type="Timer" parent="SeatSpawner"]
-wait_time = 4096.0
-one_shot = true
-
-[node name="AngerTimer" type="Timer" parent="SeatSpawner"]
-one_shot = true
-
-[node name="Door" type="Position2D" parent="SeatSpawner"]
-position = Vector2( 42, -170 )
-
-[node name="Seat" type="Position2D" parent="SeatSpawner"]
-position = Vector2( -14, -23 )
-
-[node name="TweenToSeat" type="Tween" parent="SeatSpawner"]
-
-[node name="TweenToDoor" type="Tween" parent="SeatSpawner"]
-
-[node name="NormalMistake" type="AudioStreamPlayer" parent="SeatSpawner"]
-stream = ExtResource( 51 )
-
-[node name="NormalGood" type="AudioStreamPlayer" parent="SeatSpawner"]
-stream = ExtResource( 50 )
-volume_db = -10.0
-
-[node name="BartenderTalk" type="AudioStreamPlayer" parent="SeatSpawner"]
-
-[node name="EnemyTalk" type="AudioStreamPlayer" parent="SeatSpawner"]
-
-[node name="DifficultyTimer" type="Timer" parent="SeatSpawner"]
-wait_time = 15.0
-autostart = true
-
 [node name="Black" type="Node2D" parent="."]
 visible = false
 position = Vector2( -60, -65 )
@@ -498,6 +562,29 @@ __meta__ = {
 [node name="TV" parent="." instance=ExtResource( 39 )]
 position = Vector2( 92.9731, 142.736 )
 scale = Vector2( 2, 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+[connection signal="Death" from="SeatSpawner5/Enemy" to="SeatSpawner5" method="_on_Enemy_Death"]
+[connection signal="DrinkGot" from="SeatSpawner5/Enemy" to="SeatSpawner5" method="_on_Enemy_DrinkGot"]
+[connection signal="area_entered" from="SeatSpawner5/Enemy" to="SeatSpawner5/Enemy" method="_on_Enemy_area_entered"]
+[connection signal="timeout" from="SeatSpawner5/SpawnTimer" to="SeatSpawner5" method="_on_SpawnTimer_timeout"]
+[connection signal="timeout" from="SeatSpawner5/AngerTimer" to="SeatSpawner5" method="_on_AngerTimer_timeout"]
+[connection signal="tween_all_completed" from="SeatSpawner5/TweenToSeat" to="SeatSpawner5" method="_on_TweenToSeat_tween_all_completed"]
+[connection signal="timeout" from="SeatSpawner5/DifficultyTimer" to="SeatSpawner5" method="_on_DifficultyTimer_timeout"]
+[connection signal="Death" from="SeatSpawner4/Enemy" to="SeatSpawner4" method="_on_Enemy_Death"]
+[connection signal="DrinkGot" from="SeatSpawner4/Enemy" to="SeatSpawner4" method="_on_Enemy_DrinkGot"]
+[connection signal="area_entered" from="SeatSpawner4/Enemy" to="SeatSpawner4/Enemy" method="_on_Enemy_area_entered"]
+[connection signal="timeout" from="SeatSpawner4/SpawnTimer" to="SeatSpawner4" method="_on_SpawnTimer_timeout"]
+[connection signal="timeout" from="SeatSpawner4/AngerTimer" to="SeatSpawner4" method="_on_AngerTimer_timeout"]
+[connection signal="tween_all_completed" from="SeatSpawner4/TweenToSeat" to="SeatSpawner4" method="_on_TweenToSeat_tween_all_completed"]
+[connection signal="timeout" from="SeatSpawner4/DifficultyTimer" to="SeatSpawner4" method="_on_DifficultyTimer_timeout"]
+[connection signal="Death" from="SeatSpawner3/Enemy" to="SeatSpawner3" method="_on_Enemy_Death"]
+[connection signal="DrinkGot" from="SeatSpawner3/Enemy" to="SeatSpawner3" method="_on_Enemy_DrinkGot"]
+[connection signal="area_entered" from="SeatSpawner3/Enemy" to="SeatSpawner3/Enemy" method="_on_Enemy_area_entered"]
+[connection signal="timeout" from="SeatSpawner3/SpawnTimer" to="SeatSpawner3" method="_on_SpawnTimer_timeout"]
+[connection signal="timeout" from="SeatSpawner3/AngerTimer" to="SeatSpawner3" method="_on_AngerTimer_timeout"]
+[connection signal="tween_all_completed" from="SeatSpawner3/TweenToSeat" to="SeatSpawner3" method="_on_TweenToSeat_tween_all_completed"]
+[connection signal="timeout" from="SeatSpawner3/DifficultyTimer" to="SeatSpawner3" method="_on_DifficultyTimer_timeout"]
 [connection signal="DrBob" from="DrBob" to="Player" method="_on_DrBob_DrBob"]
 [connection signal="Bloodweiser" from="Bloodweiser" to="Player" method="_on_Bloodweiser_Bloodweiser"]
 [connection signal="Crudlite" from="Crudlite" to="Player" method="_on_Crudlite_Crudlite"]
@@ -507,20 +594,6 @@ scale = Vector2( 2, 2 )
 [connection signal="GotRglass" from="Rglass" to="Player" method="_on_Rglass_GotRglass"]
 [connection signal="GotWglass" from="Wglass" to="Player" method="_on_Wglass_GotWglass"]
 [connection signal="GotSoupCont" from="Soupbowls" to="Player" method="_on_Soupbowls_GotSoupCont"]
-[connection signal="Death" from="SeatSpawner2/Enemy" to="SeatSpawner2" method="_on_Enemy_Death"]
-[connection signal="DrinkGot" from="SeatSpawner2/Enemy" to="SeatSpawner2" method="_on_Enemy_DrinkGot"]
-[connection signal="area_entered" from="SeatSpawner2/Enemy" to="SeatSpawner2/Enemy" method="_on_Enemy_area_entered"]
-[connection signal="timeout" from="SeatSpawner2/SpawnTimer" to="SeatSpawner2" method="_on_SpawnTimer_timeout"]
-[connection signal="timeout" from="SeatSpawner2/AngerTimer" to="SeatSpawner2" method="_on_AngerTimer_timeout"]
-[connection signal="tween_all_completed" from="SeatSpawner2/TweenToSeat" to="SeatSpawner2" method="_on_TweenToSeat_tween_all_completed"]
-[connection signal="timeout" from="SeatSpawner2/DifficultyTimer" to="SeatSpawner2" method="_on_DifficultyTimer_timeout"]
-[connection signal="Death" from="SeatSpawner/Enemy" to="SeatSpawner" method="_on_Enemy_Death"]
-[connection signal="DrinkGot" from="SeatSpawner/Enemy" to="SeatSpawner" method="_on_Enemy_DrinkGot"]
-[connection signal="area_entered" from="SeatSpawner/Enemy" to="SeatSpawner/Enemy" method="_on_Enemy_area_entered"]
-[connection signal="timeout" from="SeatSpawner/SpawnTimer" to="SeatSpawner" method="_on_SpawnTimer_timeout"]
-[connection signal="timeout" from="SeatSpawner/AngerTimer" to="SeatSpawner" method="_on_AngerTimer_timeout"]
-[connection signal="tween_all_completed" from="SeatSpawner/TweenToSeat" to="SeatSpawner" method="_on_TweenToSeat_tween_all_completed"]
-[connection signal="timeout" from="SeatSpawner/DifficultyTimer" to="SeatSpawner" method="_on_DifficultyTimer_timeout"]
 
 [editable path="DrBob"]
 

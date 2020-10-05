@@ -30,13 +30,13 @@ func updateCursor(): #changes cursor animation
 func _on_TextureButton_pressed():
 	$FadeOut.visible = true
 	$Tween.interpolate_property($FadeOut, "color", Color(0,0,0,0), Color(0,0,0,1), .2, Tween.TRANS_LINEAR, Tween.EASE_IN)
-	$Tween.interpolate_property($BGM, "volume_db", 0, -40, .2, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	$Tween.interpolate_property($BGM, "volume_db", -10, -40, .2, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	$Tween.start()
 	
 func _on_TextureButton2_pressed():
 	$FadeOut.visible = true
 	$TweenHelp.interpolate_property($FadeOut, "color", Color(0,0,0,0), Color(0,0,0,1), .2, Tween.TRANS_LINEAR, Tween.EASE_IN)
-	$Tween.interpolate_property($BGM, "volume_db", 0, -40, .2, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	$Tween.interpolate_property($BGM, "volume_db", -10, -40, .2, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	$TweenHelp.start()
 
 func _on_Tween_tween_all_completed():
