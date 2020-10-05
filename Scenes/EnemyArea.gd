@@ -12,6 +12,7 @@ func on_click():
 	print(drinkWanted)
 	if get_node("..").drinkWanted == int(CurrentlyInHand.get_drink()):
 		emit_signal("DrinkGot")
+		CurrentlyInHand.update_drink(0)
 	else:
 		emit_signal("Death")
 

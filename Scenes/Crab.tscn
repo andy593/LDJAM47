@@ -4,8 +4,7 @@
 [ext_resource path="res://Scripts/Crab.gd" type="Script" id=2]
 [ext_resource path="res://Sounds/CrabWalk.wav" type="AudioStream" id=3]
 
-
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "CrabRunInAndWantAPickle"
 length = 3.5
 tracks/0/type = "value"
@@ -63,7 +62,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 2 )
 }
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 27.2838, 13.1307 )
 
 [node name="Crab" type="Area2D"]
@@ -76,11 +75,11 @@ texture = ExtResource( 1 )
 hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/CrabRunInAndWantAPickle = SubResource( 2 )
+anims/CrabRunInAndWantAPickle = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.0967102, 0.535765 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="CrabTimer" type="Timer" parent="."]
 wait_time = 2.929

@@ -4,6 +4,8 @@ var currentDifficulty = 0 setget set_difficulty, get_difficulty
 var MISTAKES = 0 setget made_mistake, get_mistake
 var CurrentlyInHand = 0 setget update_drink, get_drink
 var isScaryTimeActive = 0 setget set_ScaryTime, get_ScaryTime
+var totalScore = 0 setget add_score, get_score
+var crabScore = 0 setget add_crab, get_crab
 
 func instance_scene_on_main(scene, position):
 	var main = get_tree().current_scene
@@ -31,7 +33,7 @@ func get_difficulty():
 
 func made_mistake(value):
 	print ("WOW! you fucked up idiot")
-	MISTAKES +=1
+	MISTAKES += value
 
 func get_mistake():
 	return MISTAKES
@@ -48,3 +50,17 @@ func set_ScaryTime(value):
 
 func get_ScaryTime():
 	return isScaryTimeActive
+	
+func add_score(points):
+	totalScore = totalScore + points
+	print("Current score: " + str(totalScore))
+
+func get_score():
+	return totalScore
+	
+func add_crab(points):
+	totalScore = totalScore + points
+	print("Current crab: " + str(totalScore))
+
+func get_crab():
+	return crabScore

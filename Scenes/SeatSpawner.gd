@@ -55,7 +55,9 @@ func decideSprite(): #decides the enemy's sprite. normal during normal hours, sc
 
 func decideDrink():
 	randomize()
-	drinkWanted = int(randi()%4+1)
+	drinkWanted = int(randi()%17+1)
+	while drinkWanted > 4 and drinkWanted < 10:
+		drinkWanted = int(randi()%17+1)
 	print("E",drinkWanted)
 	return drinkWanted
 	
@@ -65,6 +67,7 @@ func decideSpawnTime():
 	if spawnTime <= 0.1:
 		spawnTime = 0.1
 	print("Time before spawn is" + str(spawnTime) + " seconds!")
+	
 	
 func decideAngerTime():
 	var angerTime = 15
@@ -83,12 +86,17 @@ func askForDrink():
 	$Enemy/Sprite.frame = 1
 	$Enemy/Hitbox.disabled = false
 	$Enemy/BubbleSprite.visible = true
+	$Enemy/WantSprite.frame = drinkWanted
+	$Enemy/WantSprite.visible = true
+	$AngerTimer.paused = false
 	$AngerTimer.start(angerTime)
 	
 func _on_Enemy_DrinkGot(): #when the enemy gets the proper drink. GJ!
 	$Enemy/BubbleSprite.visible = false
+	$Enemy/WantSprite.visible = false
 	$Enemy/Hitbox.disabled = true
 	$Enemy/Sprite.frame = 2
+	loader.add_score(1)
 	yield(get_tree().create_timer(2),"timeout")
 	$Enemy/Sprite.frame = 4
 	$AngerTimer.paused = true
@@ -98,20 +106,39 @@ func _on_Enemy_DrinkGot(): #when the enemy gets the proper drink. GJ!
 	resetEnemyState()
 	
 func _on_Enemy_Death(): #when the enemy gets the wrong drink. moron.....
-	pass # Replace with function body
-	
-func _on_AngerTimer_timeout(): #if the customer gets angry they explode
-	loader.made_mistake(1)
 	$Enemy/Hitbox.disabled = true
 	$Enemy/Sprite.frame = 3
 	$Enemy/BubbleSprite.visible = false
+	$Enemy/WantSprite.visible = false
+	yield(get_tree().create_timer(1),"timeout")
+	if loader.isScaryTimeActive == 1:
+		loader.made_mistake(1)
+		var particle = Particle.instance()
+		var main = get_tree().current_scene
+		main.add_child(particle)
+		particle.global_position = $Enemy.global_position
+	else:
+		$Enemy/Sprite.frame = 4
+		$NormalMistake.play()
+		tweenOut.interpolate_property($Enemy,"global_position",Vector2($Seat.global_position.x, $Seat.global_position.y),Vector2($Door.global_position.x,$Door.global_position.y),1,Tween.TRANS_LINEAR)
+		tweenOut.start()
+		yield(get_tree().create_timer(1),"timeout")
+	resetEnemyState()
+	
+func _on_AngerTimer_timeout(): #if the customer gets angry they explode
+	$Enemy/Hitbox.disabled = true
+	$Enemy/Sprite.frame = 3
+	$Enemy/BubbleSprite.visible = false
+	$Enemy/WantSprite.visible = false
 	yield(get_tree().create_timer(1),"timeout")
 	if loader.isScaryTimeActive == 0:
 		$Enemy/Sprite.frame = 4
+		$NormalMistake.play()
 		tweenOut.interpolate_property($Enemy,"global_position",Vector2($Seat.global_position.x, $Seat.global_position.y),Vector2($Door.global_position.x,$Door.global_position.y),1,Tween.TRANS_LINEAR)
 		tweenOut.start()
 		yield(get_tree().create_timer(1),"timeout")
 	if loader.isScaryTimeActive == 1:
+		loader.made_mistake(1)
 		var particle = Particle.instance()
 		var main = get_tree().current_scene
 		main.add_child(particle)
@@ -124,6 +151,7 @@ func resetEnemyState(): #resets enemy, giving the illusion of despawning them
 	$Enemy.visible = false
 	$Enemy/Hitbox.disabled = true
 	$Enemy/BubbleSprite.visible = false
+	$Enemy/WantSprite.visible = false
 	$Enemy/Sprite.frame = 0
 	decideDrink()
 	resetEnemy()

@@ -19,11 +19,9 @@ func _process(delta):
 		if strike2Play == false:
 			$Buzzer.play()
 			strike2Play = true
-		$Buzzer.play()
 		$Animation.play("2Strike")
 	if strikes == 3:
 		if strike3Play == false:
 			$Buzzer.play()
 			strike3Play = true
-		$Buzzer.play()
 		$Animation.play("3Strikes")

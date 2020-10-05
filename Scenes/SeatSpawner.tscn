@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/SeatSpawner.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/NormalEnemies/MrVibeSheet.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/EnemySpeech.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/EnemyArea.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/EnemySpeechBubbleSprites.png" type="Texture" id=5]
+[ext_resource path="res://Sounds/NormalMistake.wav" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 17.9245, 28.7869 )
@@ -32,6 +34,13 @@ position = Vector2( -25.2215, -56.686 )
 scale = Vector2( 0.666667, 0.666667 )
 texture = ExtResource( 3 )
 
+[node name="WantSprite" type="Sprite" parent="Enemy"]
+visible = false
+position = Vector2( -26.6203, -54.6344 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 5 )
+hframes = 18
+
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 4096.0
 one_shot = true
@@ -47,6 +56,9 @@ position = Vector2( 134.873, -155.292 )
 [node name="TweenToSeat" type="Tween" parent="."]
 
 [node name="TweenToDoor" type="Tween" parent="."]
+
+[node name="NormalMistake" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 [connection signal="Death" from="Enemy" to="." method="_on_Enemy_Death"]
 [connection signal="DrinkGot" from="Enemy" to="." method="_on_Enemy_DrinkGot"]
 [connection signal="area_entered" from="Enemy" to="Enemy" method="_on_Enemy_area_entered"]

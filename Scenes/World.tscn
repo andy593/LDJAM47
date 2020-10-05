@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/BarCounter.png" type="Texture" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Scripts/DrBob.gd" type="Script" id=21]
 [ext_resource path="res://Scripts/Bloodweiser.gd" type="Script" id=22]
 [ext_resource path="res://Sprites/Mugs.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/BarTap4.png" type="Texture" id=24]
 [ext_resource path="res://Scenes/StrikeList.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Sprites/Bowls.png" type="Texture" id=26]
 [ext_resource path="res://Sprites/WineGlasses.png" type="Texture" id=27]
@@ -31,6 +32,8 @@
 [ext_resource path="res://Scripts/Wglass.gd" type="Script" id=30]
 [ext_resource path="res://Sprites/DrinkSheet.png" type="Texture" id=31]
 [ext_resource path="res://Scripts/BottomSelection.gd" type="Script" id=32]
+[ext_resource path="res://Sprites/BarTap2.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/BarTap3.png" type="Texture" id=34]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64, 12 )
@@ -71,6 +74,11 @@ scale = Vector2( 1.354, 1.354 )
 texture = ExtResource( 16 )
 hframes = 2
 
+[node name="Crab" parent="." instance=ExtResource( 9 )]
+position = Vector2( 61, 169 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 320, 287 )
 scale = Vector2( 1.33371, 1.33371 )
@@ -79,22 +87,36 @@ texture = ExtResource( 10 )
 [node name="BarCounter" type="Sprite" parent="."]
 position = Vector2( 320.707, 270 )
 scale = Vector2( 1.34, 1 )
+z_index = 2
 texture = ExtResource( 2 )
 
 [node name="DrBob" parent="." instance=ExtResource( 3 )]
 position = Vector2( 195, 355 )
+z_index = 2
 script = ExtResource( 21 )
+
+[node name="BarTapSprite" parent="DrBob" index="0"]
+texture = ExtResource( 24 )
 
 [node name="Bloodweiser" parent="." instance=ExtResource( 3 )]
 position = Vector2( 150, 355.028 )
+z_index = 2
 script = ExtResource( 22 )
+
+[node name="BarTapSprite" parent="Bloodweiser" index="0"]
+texture = ExtResource( 34 )
 
 [node name="Crudlite" parent="." instance=ExtResource( 3 )]
 position = Vector2( 100, 355.028 )
+z_index = 2
 script = ExtResource( 19 )
+
+[node name="BarTapSprite" parent="Crudlite" index="0"]
+texture = ExtResource( 33 )
 
 [node name="Snootbeer" parent="." instance=ExtResource( 3 )]
 position = Vector2( 50, 355.028 )
+z_index = 2
 script = ExtResource( 20 )
 
 [node name="Clock" parent="." instance=ExtResource( 5 )]
@@ -112,12 +134,10 @@ autoplay = true
 [node name="BGM2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
 
-[node name="Crab" parent="." instance=ExtResource( 9 )]
-position = Vector2( 716.866, 376.69 )
-
 [node name="Rglass" parent="." instance=ExtResource( 18 )]
 position = Vector2( 595, 360 )
 scale = Vector2( 2.5, 2.5 )
+z_index = 2
 script = ExtResource( 28 )
 
 [node name="Sprite" type="Sprite" parent="Rglass"]
@@ -127,6 +147,7 @@ texture = ExtResource( 23 )
 [node name="Wglass" parent="." instance=ExtResource( 18 )]
 position = Vector2( 500, 360 )
 scale = Vector2( 2.5, 2.5 )
+z_index = 2
 script = ExtResource( 30 )
 
 [node name="Sprite" type="Sprite" parent="Wglass"]
@@ -136,6 +157,7 @@ texture = ExtResource( 27 )
 [node name="Soupbowls" parent="." instance=ExtResource( 18 )]
 position = Vector2( 526, 430 )
 scale = Vector2( 2.5, 2.5 )
+z_index = 2
 script = ExtResource( 29 )
 
 [node name="Sprite" type="Sprite" parent="Soupbowls"]
@@ -149,18 +171,9 @@ scale = Vector2( 1.5, 1 )
 texture = ExtResource( 26 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+modulate = Color( 1, 1, 1, 0.478431 )
 position = Vector2( 54, -5 )
-
-[node name="Black" type="ColorRect" parent="."]
-visible = false
-margin_left = -60.0
-margin_top = -65.0
-margin_right = 703.0
-margin_bottom = 522.0
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+z_index = 2
 
 [node name="SeatSpawner" parent="." instance=ExtResource( 17 )]
 position = Vector2( 478, 353 )
@@ -172,18 +185,45 @@ position = Vector2( 36.9999, -23 )
 position = Vector2( 42, -170 )
 
 [node name="Seat" parent="SeatSpawner" index="4"]
-position = Vector2( 37, -23 )
+position = Vector2( -14, -23 )
+
+[node name="SeatSpawner2" parent="." instance=ExtResource( 17 )]
+position = Vector2( 478, 353 )
+
+[node name="Enemy" parent="SeatSpawner2" index="0"]
+position = Vector2( 36.9999, -23 )
+
+[node name="Door" parent="SeatSpawner2" index="3"]
+position = Vector2( 42, -170 )
+
+[node name="Seat" parent="SeatSpawner2" index="4"]
+position = Vector2( -169, -21 )
 
 [node name="Bottomselect" type="Area2D" parent="."]
+z_index = 2
 script = ExtResource( 32 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottomselect"]
 position = Vector2( 140, 459 )
 shape = SubResource( 1 )
 
-[node name="DrinkSheet" type="Sprite" parent="."]
+[node name="DrinkSheet" type="Sprite" parent="Bottomselect"]
 position = Vector2( 140, 460 )
+z_index = 2
 texture = ExtResource( 31 )
+
+[node name="Black" type="Node2D" parent="."]
+visible = false
+position = Vector2( -60, -65 )
+z_index = 10
+
+[node name="Black" type="ColorRect" parent="Black"]
+margin_right = 763.0
+margin_bottom = 587.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="DrBob" from="DrBob" to="Player" method="_on_DrBob_DrBob"]
 [connection signal="Bloodweiser" from="Bloodweiser" to="Player" method="_on_Bloodweiser_Bloodweiser"]
 [connection signal="Crudlite" from="Crudlite" to="Player" method="_on_Crudlite_Crudlite"]
@@ -195,6 +235,14 @@ texture = ExtResource( 31 )
 [connection signal="GotSoupCont" from="Soupbowls" to="Player" method="_on_Soupbowls_GotSoupCont"]
 [connection signal="BottomItemGrabbed" from="Bottomselect" to="Player" method="_on_Bottomselect_BottomItemGrabbed"]
 
+[editable path="DrBob"]
+
+[editable path="Bloodweiser"]
+
+[editable path="Crudlite"]
+
 [editable path="Clock"]
 
 [editable path="SeatSpawner"]
+
+[editable path="SeatSpawner2"]
