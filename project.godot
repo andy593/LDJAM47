@@ -29,9 +29,9 @@ Loader="*res://Scripts/Loader.gd"
 
 [display]
 
-window/size/width=640
+window/size/width=854
 window/size/height=480
-window/size/test_width=1280
+window/size/test_width=1706
 window/size/test_height=960
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"

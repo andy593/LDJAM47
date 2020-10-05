@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Look.wav-ff7d86f766e5a10203fd04db71370a20.sample"
+
+[deps]
+
+source_file="res://Sounds/Bartender/Look.wav"
+dest_files=[ "res://.import/Look.wav-ff7d86f766e5a10203fd04db71370a20.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

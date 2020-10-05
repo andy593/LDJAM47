@@ -1,27 +1,56 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Sprites/TitleScreen.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/StartButton.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Secret.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Cursor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/TitleScreen.gd" type="Script" id=5]
+[ext_resource path="res://Sounds/Secret.wav" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 64.3393, 33.4792 )
 
-[node name="TitleScreen" type="Sprite"]
-position = Vector2( 320, 240 )
+[node name="TitleScreen" type="Node2D"]
+
+[node name="TitleScreen" type="Sprite" parent="."]
+position = Vector2( 432.206, 312.962 )
 texture = ExtResource( 1 )
 script = ExtResource( 5 )
 
-[node name="Cursor" parent="." instance=ExtResource( 4 )]
+[node name="Cursor" parent="TitleScreen" instance=ExtResource( 4 )]
 
-[node name="Tween" type="Tween" parent="."]
+[node name="Tween" type="Tween" parent="TitleScreen"]
+
+[node name="Secret" type="TextureButton" parent="TitleScreen"]
+margin_left = -451.0
+margin_top = -290.0
+margin_right = -435.0
+margin_bottom = -274.0
+rect_scale = Vector2( 0.7, 0.7 )
+texture_normal = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SecretAudio" type="AudioStreamPlayer" parent="TitleScreen"]
+stream = ExtResource( 6 )
+
+[node name="FadeOut" type="ColorRect" parent="TitleScreen"]
+visible = false
+margin_left = -452.0
+margin_top = -453.0
+margin_right = 458.0
+margin_bottom = 380.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TextureButton" type="TextureButton" parent="."]
-margin_left = 137.806
-margin_top = 30.6759
-margin_right = 265.806
-margin_bottom = 94.6759
+margin_left = 223.591
+margin_top = 391.218
+margin_right = 351.591
+margin_bottom = 455.218
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 2 )
 texture_hover = ExtResource( 2 )
@@ -36,18 +65,8 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TextureButton/ButtonArea"]
 position = Vector2( 63.9803, 31.9901 )
 shape = SubResource( 1 )
-
-[node name="FadeOut" type="ColorRect" parent="."]
-visible = false
-margin_left = -340.454
-margin_top = -245.636
-margin_right = 342.546
-margin_bottom = 257.364
-color = Color( 0, 0, 0, 0 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-[connection signal="area_entered" from="Cursor" to="." method="_on_Cursor_area_entered"]
-[connection signal="area_exited" from="Cursor" to="." method="_on_Cursor_area_exited"]
-[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
-[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="area_entered" from="TitleScreen/Cursor" to="TitleScreen" method="_on_Cursor_area_entered"]
+[connection signal="area_exited" from="TitleScreen/Cursor" to="TitleScreen" method="_on_Cursor_area_exited"]
+[connection signal="tween_all_completed" from="TitleScreen/Tween" to="TitleScreen" method="_on_Tween_tween_all_completed"]
+[connection signal="pressed" from="TitleScreen/Secret" to="TitleScreen" method="_on_Secret_pressed"]
+[connection signal="pressed" from="TextureButton" to="TitleScreen" method="_on_TextureButton_pressed"]

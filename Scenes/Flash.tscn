@@ -61,21 +61,21 @@ z_index = 3
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -890.451
-margin_top = -587.681
+margin_top = -586.887
 margin_right = 1423.55
-margin_bottom = 1017.32
+margin_bottom = 1018.11
 color = Color( 1, 1, 1, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 5.241
-margin_top = 180.0
-margin_right = 624.241
-margin_bottom = 362.0
+margin_left = 4.24082
+margin_top = -49.815
+margin_right = 623.241
+margin_bottom = 132.185
 custom_fonts/normal_font = ExtResource( 1 )
-custom_colors/default_color = Color( 1, 0, 0, 0 )
+custom_colors/default_color = Color( 1, 0, 0, 0.615385 )
 tab_size = 6
 text = "THE SHIFT NEVER ENDS......"
 __meta__ = {

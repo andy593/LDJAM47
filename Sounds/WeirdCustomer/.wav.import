@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/.wav-e9fe5f89b7e0f92f43a91461e25229f2.sample"
+
+[deps]
+
+source_file="res://Sounds/WeirdCustomer/.wav"
+dest_files=[ "res://.import/.wav-e9fe5f89b7e0f92f43a91461e25229f2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

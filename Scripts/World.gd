@@ -8,7 +8,6 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("ui_down"): 
 		mistakes.made_mistake(0)
-		$Buzzer.play()
 	var strikes = mistakes.get_mistake()
 	if strikes >= 3:
 		$BGM.stop()

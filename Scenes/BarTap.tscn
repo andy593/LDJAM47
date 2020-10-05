@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/BarTap.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/BarTap1.png" type="Texture" id=2]
+[ext_resource path="res://Sounds/drinkpour.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 53 )
@@ -22,4 +23,7 @@ shape = SubResource( 1 )
 [node name="PourTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 [connection signal="timeout" from="PourTimer" to="." method="_on_PourTimer_timeout"]

@@ -1,12 +1,18 @@
 extends Sprite
 var isMouseClickable = 0
+signal fade
 
 func _ready():
 	pass # Replace with function body.
 	
 func _process(delta):
 	updateCursor()
-
+	updateScreenPosition()
+	
+func updateScreenPosition(): #moves player
+	var mouse_pos = get_global_mouse_position() #ez
+	global_position.y = - mouse_pos.y / 15 + 290
+	global_position.x = - mouse_pos.x / 30 + 450
 func _on_Cursor_area_entered(area):
 	isMouseClickable = 1
 
@@ -28,3 +34,7 @@ func _on_TextureButton_pressed():
 
 func _on_Tween_tween_all_completed():
 	get_tree().change_scene("res://Scenes/World.tscn")
+
+
+func _on_Secret_pressed():
+	$SecretAudio.play()

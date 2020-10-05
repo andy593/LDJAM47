@@ -33,7 +33,9 @@ func enterScene(): #when enemy enters the scene
 	
 func decideDrink(): #decides the enemy's requested drink
 	randomize()
-	drinkWanted = int(randi()%4+1)
+	drinkWanted = int(randi()%17+1)
+	if drinkWanted > 4 and drinkWanted < 10:
+		drinkWanted in(randi()%17+1)
 	print("E",drinkWanted)
 	return drinkWanted
 	
@@ -73,7 +75,7 @@ func _on_EnemyArea_Death(): #When they got the wrong drink
 	var main = get_tree().current_scene
 	main.add_child(particle)
 	particle.global_position = position
-	queue_free()\
+	queue_free()
 
 func chooseSprite(): #picks enemy's sprite
 	var path = 0
